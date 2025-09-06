@@ -203,12 +203,43 @@ body {
     min-height: 2rem;
 }
 
+.tech-stack-line {
+    font-size: 0.9rem;
+    color: var(--accent-green);
+    margin: 1.5rem 0;
+    padding: 1rem 1.5rem;
+    background: var(--bg-glass);
+    border: 1px solid var(--border-glass);
+    border-radius: 12px;
+    font-weight: 500;
+    letter-spacing: 0.8px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-glass);
+}
+
 .hero-text .description {
     font-size: 1.1rem;
     color: var(--text-secondary);
-    margin-bottom: 2rem;
-    max-width: 600px;
-    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    max-width: 100%;
+    line-height: 1.8;
+    text-align: left;
+}
+
+.motto {
+    font-size: 1.2rem;
+    color: var(--accent-green);
+    font-weight: 600;
+    font-style: italic;
+    text-align: center;
+    margin: 1.5rem 0 2rem 0;
+    padding: 1rem;
+    background: linear-gradient(135deg, var(--bg-glass), rgba(0, 255, 136, 0.05));
+    border: 1px solid var(--border-glass);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-glass);
 }
 
 .cta-buttons {
@@ -285,6 +316,14 @@ body {
     justify-content: center;
     font-size: 3rem;
     color: var(--accent-green);
+    overflow: hidden;
+}
+
+.profile-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
 }
 
 .profile-stats {
@@ -364,8 +403,52 @@ body {
     font-size: 1.2rem;
     line-height: 1.8;
     color: var(--text-secondary);
-    margin-bottom: 3rem;
-    text-align: center;
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.about-description {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.areas-title {
+    font-size: 1.4rem;
+    color: var(--accent-green);
+    margin: 2rem 0 1.5rem 0;
+    font-weight: 600;
+}
+
+.experience-area {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: var(--bg-glass);
+    border: 1px solid var(--border-glass);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-glass);
+}
+
+.experience-area h4 {
+    font-size: 1.1rem;
+    color: var(--accent-green);
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.experience-area h4 i {
+    font-size: 1rem;
+}
+
+.experience-area p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
 }
 
 .interests-section,
