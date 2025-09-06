@@ -1,0 +1,37 @@
+User-agent: *
+Allow: /
+
+# Permitir acceso a recursos importantes
+Allow: /assets/
+Allow: /assets/css/
+Allow: /assets/js/
+Allow: /assets/images/
+Allow: /assets/fonts/
+
+# Bloquear archivos específicos
+Disallow: /*.log$
+Disallow: /*.sql$
+Disallow: /*.gz$
+Disallow: /.git/
+Disallow: /node_modules/
+Disallow: /temp/
+Disallow: /tmp/
+
+# Permitir páginas importantes para SEO
+Allow: /index.html
+Allow: /#about
+Allow: /#achievements
+Allow: /#projects
+Allow: /#experience
+Allow: /#skills
+Allow: /#contact
+
+# Configuraciones específicas para bots importantes
+User-agent: Googlebot
+Crawl-delay: 1
+
+User-agent: Bingbot
+Crawl-delay: 2
+
+# Sitemap
+Sitemap: https://jvaldesb.com/sitemap.xml
