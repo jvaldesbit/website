@@ -11,4 +11,4 @@ Disallow: /temp/
 Disallow: /tmp/
 
 # Sitemap
-Sitemap: https://jvaldesb.com/sitemap.xml
+Sitemap: https://jcvb.com.co/sitemap.xml
