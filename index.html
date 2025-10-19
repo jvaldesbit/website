@@ -11,6 +11,12 @@
     <meta name="author" content="Julián Camilo Valdés Bello">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://jvaldesb.com/">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <link rel="alternate icon" href="assets/images/favicon.ico">
+    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <!-- Open Graph / Facebook / WhatsApp -->
     <meta property="og:type" content="website">
@@ -173,7 +179,7 @@
                             <i class="fas fa-code"></i>
                             Ver Proyectos
                         </a>
-                        <a href="assets/CV-TL2025.pdf" class="btn" download target="_blank">
+                        <a href="assets/CV-2025.pdf" class="btn" download target="_blank">
                             <i class="fas fa-download"></i>
                             Descargar CV
                         </a>
@@ -785,30 +791,23 @@
                                 <input type="text" id="name" x-model="form.name" required>
                             </div>
                             <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" id="email" x-model="form.email" required>
-                            </div>
-                            <div class="form-group">
                                 <label for="message">Mensaje</label>
                                 <textarea id="message" x-model="form.message" rows="5" required></textarea>
                             </div>
-                            <button type="submit" class="btn primary" :disabled="sending">
-                                <i :class="sending ? 'fas fa-spinner fa-spin' : 'fas fa-paper-plane'"></i>
-                                <span x-text="sending ? 'Enviando...' : 'Enviar Mensaje'"></span>
+                            <button type="submit" class="btn primary">
+                                <i class="fab fa-whatsapp"></i>
+                                <span>Enviar por WhatsApp</span>
                             </button>
-                            <div x-show="success" x-transition class="success-message">
-                                ¡Gracias por tu mensaje! Te responderé pronto.
-                            </div>
                         </form>
-                        
+
                         <div class="contact-info">
                             <div class="contact-item">
                                 <i class="fas fa-envelope"></i>
                                 <span>julianvaldes24@gmail.com</span>
                             </div>
                             <div class="contact-item">
-                                <i class="fas fa-phone"></i>
-                                <span>+57 333 430 8895</span>
+                                <i class="fab fa-whatsapp"></i>
+                                <span>+57 313 730 3141</span>
                             </div>
                             <div class="contact-item">
                                 <i class="fas fa-map-marker-alt"></i>
@@ -938,28 +937,18 @@
             return {
                 form: {
                     name: '',
-                    email: '',
                     message: ''
                 },
-                sending: false,
-                success: false,
-                
-                async submitForm() {
-                    this.sending = true;
-                    
-                    // Simulate API call
-                    await new Promise(resolve => setTimeout(resolve, 1000));
-                    
-                    this.sending = false;
-                    this.success = true;
-                    
+
+                submitForm() {
+                    const phoneNumber = '513137303141';
+                    const text = `Hola, soy ${this.form.name}. ${this.form.message}`;
+                    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(text)}`;
+
+                    window.open(whatsappUrl, '_blank');
+
                     // Reset form
-                    this.form = { name: '', email: '', message: '' };
-                    
-                    // Hide success message after 3 seconds
-                    setTimeout(() => {
-                        this.success = false;
-                    }, 3000);
+                    this.form = { name: '', message: '' };
                 }
             }
         }
