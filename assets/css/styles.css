@@ -1590,5 +1590,35 @@ body {
 @media (max-width: 768px) {
     .articles-grid {
         grid-template-columns: 1fr;
+        gap: 1rem;
+        margin-top: 1.5rem;
+    }
+
+    .article-card {
+        padding: 1.25rem;
+        border-radius: 10px;
+    }
+
+    .article-card-title {
+        font-size: 1rem;
+    }
+
+    .article-card-desc {
+        font-size: 0.85rem;
+    }
+
+    .article-card-meta {
+        gap: 0.75rem;
+        font-size: 0.75rem;
+        margin-bottom: 1rem;
+    }
+
+    .article-tag {
+        font-size: 0.65rem;
+        padding: 2px 8px;
+    }
+
+    .article-card-cta {
+        font-size: 0.78rem;
     }
 }
