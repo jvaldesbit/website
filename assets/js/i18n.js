@@ -3,7 +3,7 @@ window.i18n = {
     nav: {
       home: 'Inicio', about: 'Acerca', achievements: 'Logros',
       projects: 'Proyectos', experience: 'Experiencia',
-      skills: 'Habilidades', contact: 'Contacto'
+      skills: 'Habilidades', articles: 'Blog', contact: 'Contacto'
     },
     hero: {
       badge: 'Software Architect & Technical Lead • 9+ Años de Experiencia',
@@ -106,6 +106,13 @@ window.i18n = {
       cert1: 'Terraform: De principiante a certificado',
       cert2: 'GOLANG: Curso profesional — De cero a Master'
     },
+    articles: {
+      title: 'Blog & Artículos',
+      subtitle: 'Reflexiones técnicas sobre arquitectura, cloud y liderazgo de ingeniería',
+      readMore: 'Leer artículo',
+      minRead: 'min de lectura',
+      noArticles: 'Próximamente...',
+    },
     contact: {
       title: 'Contacto',
       nameLabel: 'Nombre',
@@ -121,7 +128,7 @@ window.i18n = {
     nav: {
       home: 'Home', about: 'About', achievements: 'Achievements',
       projects: 'Projects', experience: 'Experience',
-      skills: 'Skills', contact: 'Contact'
+      skills: 'Skills', articles: 'Blog', contact: 'Contact'
     },
     hero: {
       badge: 'Software Architect & Technical Lead • 9+ Years of Experience',
@@ -223,6 +230,13 @@ window.i18n = {
       degree4: 'Technical in Commercial Operations', date4: '02/2013 - 10/2014',
       cert1: 'Terraform: From beginner to certified',
       cert2: 'GOLANG: Professional course — From zero to Master'
+    },
+    articles: {
+      title: 'Blog & Articles',
+      subtitle: 'Technical reflections on architecture, cloud, and engineering leadership',
+      readMore: 'Read article',
+      minRead: 'min read',
+      noArticles: 'Coming soon...',
     },
     contact: {
       title: 'Contact',

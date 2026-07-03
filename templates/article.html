@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>{{title}} — Julián Valdés Bello</title>
+  <meta name="description" content="{{description}}">
+  <meta name="author" content="{{author}}">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="{{canonical}}">
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="article">
+  <meta property="og:title"       content="{{title}}">
+  <meta property="og:description" content="{{description}}">
+  <meta property="og:url"         content="{{canonical}}">
+  <meta property="og:site_name"   content="Julián Valdés Bello">
+  <meta property="article:author" content="{{author}}">
+  <meta property="article:published_time" content="{{date}}">
+
+  <!-- Twitter -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:creator"     content="@jvaldesbit">
+  <meta name="twitter:title"       content="{{title}}">
+  <meta name="twitter:description" content="{{description}}">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libertinus+Keyboard&family=Raleway:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+  <!-- Syntax highlighting -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon.svg">
+
+  <style>
+    :root {
+      --bg:        #0a0e1a;
+      --bg-card:   #0f1629;
+      --accent:    #00ff88;
+      --accent2:   #00d4ff;
+      --text:      #e6edf3;
+      --text-muted:#8892b0;
+      --border:    rgba(255,255,255,0.07);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Raleway', 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 17px;
+    }
+
+    /* ── Nav ─────────────────────────────────────── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10,14,26,0.9);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+    }
+    .nav-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+    .nav-logo {
+      font-family: 'Libertinus Keyboard', monospace;
+      font-size: 1.5rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .nav-back {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--accent); }
+
+    /* ── Hero ────────────────────────────────────── */
+    .article-hero {
+      padding: 4rem 2rem 3rem;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .article-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 1.5rem;
+    }
+    .a-tag {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 3px 10px;
+      border-radius: 20px;
+      background: rgba(0,255,136,0.1);
+      color: var(--accent);
+      border: 1px solid rgba(0,255,136,0.25);
+    }
+    .article-title {
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      margin-bottom: 1rem;
+      color: #ffffff;
+    }
+    .article-description {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin-bottom: 1.5rem;
+      max-width: 680px;
+    }
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      flex-wrap: wrap;
+    }
+    .article-meta i { color: var(--accent); margin-right: 5px; }
+    .article-meta-divider {
+      height: 1px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2), transparent);
+      margin-top: 2rem;
+    }
+
+    /* ── Body ────────────────────────────────────── */
+    .article-body {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2.5rem 2rem 5rem;
+    }
+
+    /* Typography */
+    .article-body h2 {
+      font-size: 1.55rem;
+      font-weight: 800;
+      color: #fff;
+      margin: 2.5rem 0 1rem;
+      letter-spacing: -0.3px;
+    }
+    .article-body h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #fff;
+      margin: 2rem 0 0.75rem;
+    }
+    .article-body h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin: 1.5rem 0 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .article-body p {
+      margin-bottom: 1.25rem;
+      color: #c9d1d9;
+    }
+    .article-body strong { color: #ffffff; font-weight: 700; }
+    .article-body em { color: var(--text-muted); font-style: italic; }
+
+    .article-body a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(0,255,136,0.3);
+      transition: border-color 0.2s;
+    }
+    .article-body a:hover { border-color: var(--accent); }
+
+    /* Lists */
+    .article-body ul, .article-body ol {
+      padding-left: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+    .article-body li {
+      margin-bottom: 0.5rem;
+      color: #c9d1d9;
+    }
+    .article-body li strong { color: #fff; }
+
+    /* Blockquote */
+    .article-body blockquote {
+      border-left: 3px solid var(--accent);
+      padding: 0.75rem 1.25rem;
+      margin: 1.5rem 0;
+      background: rgba(0,255,136,0.04);
+      border-radius: 0 6px 6px 0;
+    }
+    .article-body blockquote p {
+      margin: 0;
+      font-style: italic;
+      color: var(--text-muted);
+    }
+
+    /* Code inline */
+    .article-body code {
+      font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+      font-size: 0.85em;
+      background: rgba(255,255,255,0.07);
+      color: var(--accent2);
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    /* Code blocks */
+    .article-body pre {
+      margin: 1.5rem 0;
+      border-radius: 8px;
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      font-size: 0.88rem;
+    }
+    .article-body pre code {
+      background: none;
+      color: inherit;
+      padding: 0;
+      border-radius: 0;
+      font-size: inherit;
+    }
+
+    /* HR */
+    .article-body hr {
+      border: none;
+      height: 1px;
+      background: var(--border);
+      margin: 2.5rem 0;
+    }
+
+    /* Table */
+    .article-body table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.9rem;
+    }
+    .article-body th {
+      background: rgba(0,255,136,0.08);
+      color: var(--accent);
+      font-weight: 700;
+      text-align: left;
+      padding: 0.6rem 1rem;
+      border-bottom: 1px solid rgba(0,255,136,0.2);
+    }
+    .article-body td {
+      padding: 0.6rem 1rem;
+      border-bottom: 1px solid var(--border);
+      color: #c9d1d9;
+    }
+    .article-body tr:last-child td { border-bottom: none; }
+
+    /* ── Footer ──────────────────────────────────── */
+    .article-footer {
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 2rem;
+      max-width: 860px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .author-block {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .author-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--accent);
+    }
+    .author-name {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    .author-role {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+    .footer-links {
+      display: flex;
+      gap: 16px;
+    }
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--accent); }
+
+    /* ── Mobile ──────────────────────────────────── */
+    @media (max-width: 640px) {
+      .article-hero { padding: 2.5rem 1.25rem 2rem; }
+      .article-body { padding: 2rem 1.25rem 4rem; }
+      .article-footer { padding: 2rem 1.25rem; }
+      body { font-size: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="../../" class="nav-logo">JULIÁN VALDÉS</a>
+      <a href="../../#articles" class="nav-back">
+        <i class="fas fa-arrow-left"></i> Blog
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="article-hero">
+    <div class="article-tags">{{tags}}</div>
+    <h1 class="article-title">{{title}}</h1>
+    <p class="article-description">{{description}}</p>
+    <div class="article-meta">
+      <span><i class="fas fa-calendar-alt"></i>{{dateFormatted}}</span>
+      <span><i class="fas fa-clock"></i>{{readTime}} min de lectura</span>
+      <span><i class="fas fa-user"></i>{{author}}</span>
+    </div>
+    <div class="article-meta-divider"></div>
+  </header>
+
+  <!-- Content -->
+  <article class="article-body">
+    {{content}}
+  </article>
+
+  <!-- Footer -->
+  <footer class="article-footer">
+    <div class="author-block">
+      <img src="../../assets/images/profile.JPEG" alt="Julián Valdés Bello" class="author-avatar">
+      <div>
+        <div class="author-name">Julián Valdés Bello</div>
+        <div class="author-role">Software Architect · Technical Lead</div>
+      </div>
+    </div>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/julian-valdes-bello-76aa21175/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+      <a href="https://github.com/jvaldesbit" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+      <a href="../../">jcvb.com.co</a>
+    </div>
+  </footer>
+
+  <!-- Syntax highlighting -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+
+</body>
+</html>

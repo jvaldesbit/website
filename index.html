@@ -116,6 +116,7 @@
                 <li><a href="#projects" @click="setActiveSection('projects')" :class="{ 'active': activeSection === 'projects' }" x-text="t('nav.projects')">Proyectos</a></li>
                 <li><a href="#experience" @click="setActiveSection('experience')" :class="{ 'active': activeSection === 'experience' }" x-text="t('nav.experience')">Experiencia</a></li>
                 <li><a href="#skills" @click="setActiveSection('skills')" :class="{ 'active': activeSection === 'skills' }" x-text="t('nav.skills')">Habilidades</a></li>
+                <li><a href="#articles" @click="setActiveSection('articles')" :class="{ 'active': activeSection === 'articles' }" x-text="t('nav.articles')">Blog</a></li>
                 <li><a href="#contact" @click="setActiveSection('contact')" :class="{ 'active': activeSection === 'contact' }" x-text="t('nav.contact')">Contacto</a></li>
             </ul>
             <div class="nav-controls">
@@ -862,6 +863,60 @@
         </div>
     </section>
 
+    <!-- Articles Section -->
+    <section id="articles" class="section"
+      x-data="{
+        articles: [],
+        loading: true,
+        async init() {
+          try {
+            const res = await fetch('articles/index.json');
+            this.articles = await res.json();
+          } catch(e) {
+            this.articles = [];
+          }
+          this.loading = false;
+        }
+      }"
+      x-init="init()">
+      <div class="container">
+        <h2 class="section-title" x-text="t('articles.title')">Blog &amp; Artículos</h2>
+        <p class="section-subtitle" x-text="t('articles.subtitle')">Reflexiones técnicas sobre arquitectura, cloud y liderazgo de ingeniería</p>
+
+        <!-- Loading state -->
+        <div x-show="loading" style="text-align:center;padding:3rem;color:var(--text-muted)">
+          <i class="fas fa-circle-notch fa-spin"></i>
+        </div>
+
+        <!-- Empty state -->
+        <div x-show="!loading && articles.length === 0" style="text-align:center;padding:3rem;color:var(--text-muted)" x-text="t('articles.noArticles')"></div>
+
+        <!-- Cards grid -->
+        <div class="articles-grid" x-show="!loading && articles.length > 0">
+          <template x-for="article in articles" :key="article.slug">
+            <a :href="'articles/' + article.slug + '/'" class="article-card"
+               x-data="{ isVisible: false }" x-intersect="isVisible = true" :class="{ 'animate-fade-in-up': isVisible }">
+              <div class="article-card-tags">
+                <template x-for="tag in article.tags" :key="tag">
+                  <span class="article-tag" x-text="tag"></span>
+                </template>
+              </div>
+              <h3 class="article-card-title" x-text="article.title"></h3>
+              <p class="article-card-desc" x-text="article.description"></p>
+              <div class="article-card-meta">
+                <span><i class="fas fa-calendar-alt"></i> <span x-text="article.dateFormatted"></span></span>
+                <span><i class="fas fa-clock"></i> <span x-text="article.readTime"></span> <span x-text="t('articles.minRead')"></span></span>
+              </div>
+              <div class="article-card-cta">
+                <span x-text="t('articles.readMore')">Leer artículo</span>
+                <i class="fas fa-arrow-right"></i>
+              </div>
+            </a>
+          </template>
+        </div>
+      </div>
+    </section>
+
     <!-- Education Section -->
     <section id="education" class="section">
         <div class="container">
@@ -1016,7 +1071,7 @@
                 },
                 
                 observeSections() {
-                    const sections = ['home', 'about', 'achievements', 'projects', 'experience', 'skills', 'education', 'contact'];
+                    const sections = ['home', 'about', 'achievements', 'projects', 'experience', 'skills', 'articles', 'education', 'contact'];
                     
                     const observer = new IntersectionObserver((entries) => {
                         entries.forEach(entry => {
