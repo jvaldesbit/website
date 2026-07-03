@@ -81,6 +81,9 @@ Incluso recursos que parecen evidentes, como el inventario, pueden comportarse d
 
 Esto nos llevó a comprender que el modelo de negocio debía ser mucho más flexible que una simple relación **empresa = tenant**.
 
+> [!KEY]
+> Una sola empresa puede representar múltiples compañías, países, marcas y unidades de negocio, cada una con procesos e inventarios completamente distintos. El modelo **empresa = tenant** se rompe muy rápido en contextos Enterprise.
+
 Pero aún quedaba una decisión mucho más importante.
 
 ### ¿El tenant solamente representa el negocio?
@@ -115,8 +118,10 @@ En lugar de pensar únicamente en **cómo separar los datos**, comenzamos a preg
 
 Nuestra arquitectura quedó dividida en dos niveles claramente diferenciados:
 
-- **Multitenancy lógico**, encargado de aislar la información y las reglas de negocio de cada tenant.
-- **Multitenancy de infraestructura**, encargado de decidir dónde vive físicamente cada tenant y qué recursos cloud utilizará.
+> [!KEY]
+> **Multitenancy lógico** — aísla la información y las reglas de negocio de cada tenant dentro de la aplicación.
+>
+> **Multitenancy de infraestructura** — decide dónde vive físicamente cada tenant y qué recursos cloud (cuentas AWS, clústeres, bases de datos) utilizará.
 
 ---
 
@@ -164,10 +169,9 @@ Hasta ese momento pensábamos que el reto consistía en separar correctamente la
 
 Sin embargo, la experiencia nos mostró que el verdadero desafío era mucho más amplio.
 
-Un tenant no solamente representa una organización dentro del negocio.
-
-También representa una unidad de consumo de infraestructura, costos, capacidad de crecimiento y operación.
-
-Comprender esa diferencia cambió completamente nuestra forma de diseñar la plataforma.
+> [!INSIGHT]
+> Un tenant no solamente representa una organización dentro del negocio. También representa una unidad de consumo de infraestructura, costos, capacidad de crecimiento y operación.
+>
+> Comprender esa diferencia cambió completamente nuestra forma de diseñar la plataforma.
 
 En el siguiente artículo profundizaré en cómo este concepto nos llevó a construir un **Control Plane**, encargado de administrar toda la infraestructura, el ciclo de vida y la distribución de recursos de cada tenant dentro del SaaS.

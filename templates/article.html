@@ -323,6 +323,50 @@
     }
     .footer-links a:hover { color: var(--accent); }
 
+    /* ── Callouts ─────────────────────────────────── */
+    .callout {
+      margin: 1.75rem 0;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid;
+    }
+    .callout-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      padding: 0.45rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .callout-text { padding: 0.85rem 1rem 0.1rem; }
+    .callout-text p { margin-bottom: 0.75rem; }
+    .callout-text p:last-child { margin-bottom: 0.85rem; }
+
+    .callout-note    { border-color: var(--accent2); background: rgba(0,212,255,0.04); }
+    .callout-note    .callout-label { background: rgba(0,212,255,0.1); color: var(--accent2); }
+    .callout-tip     { border-color: var(--accent); background: rgba(0,255,136,0.04); }
+    .callout-tip     .callout-label { background: rgba(0,255,136,0.1); color: var(--accent); }
+    .callout-key     { border-color: #f0a500; background: rgba(240,165,0,0.04); }
+    .callout-key     .callout-label { background: rgba(240,165,0,0.1); color: #f0a500; }
+    .callout-warning { border-color: #ff6b6b; background: rgba(255,107,107,0.04); }
+    .callout-warning .callout-label { background: rgba(255,107,107,0.1); color: #ff6b6b; }
+    .callout-insight { border-color: #c084fc; background: rgba(192,132,252,0.04); }
+    .callout-insight .callout-label { background: rgba(192,132,252,0.1); color: #c084fc; }
+
+    /* ── Mermaid ───────────────────────────────────── */
+    .mermaid {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: rgba(15,22,41,0.9);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      margin: 1.75rem 0;
+      overflow-x: auto;
+    }
+    .mermaid svg { max-width: 100%; height: auto; }
+
     /* ── Mobile ──────────────────────────────────── */
     @media (max-width: 640px) {
       .article-hero { padding: 2.5rem 1.25rem 2rem; }
@@ -381,6 +425,30 @@
   <!-- Syntax highlighting -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
   <script>hljs.highlightAll();</script>
+
+  <!-- Mermaid diagrams -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'base',
+      themeVariables: {
+        background:       '#0a0e1a',
+        primaryColor:     '#0f1629',
+        primaryTextColor: '#e6edf3',
+        primaryBorderColor: '#00ff88',
+        lineColor:        '#8892b0',
+        secondaryColor:   '#0f1629',
+        tertiaryColor:    '#0a0e1a',
+        clusterBkg:       'rgba(15,22,41,0.6)',
+        clusterBorder:    '#8892b0',
+        edgeLabelBackground: '#0a0e1a',
+        nodeTextColor:    '#e6edf3',
+        titleColor:       '#00ff88',
+        fontFamily:       "Raleway, 'Segoe UI', sans-serif",
+      }
+    });
+  </script>
 
 </body>
 </html>

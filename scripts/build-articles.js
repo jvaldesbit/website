@@ -7,10 +7,13 @@ const ROOT          = path.join(__dirname, '..');
 const ARTICLES_DIR  = path.join(ROOT, 'articles');
 const TEMPLATE_PATH = path.join(ROOT, 'templates', 'article.html');
 
-// ── Marked: renderer with code language class ────────────────
+// ── Marked: code renderer (mermaid + syntax highlight) ───────
 marked.use({
   renderer: {
-    code({ text, lang }) {
+    code(text, lang) {
+      if (lang === 'mermaid') {
+        return `<div class="mermaid">${text}</div>`;
+      }
       const language = lang || 'plaintext';
       const escaped = (text || '')
         .replace(/&/g, '&amp;')
@@ -20,6 +23,32 @@ marked.use({
     }
   }
 });
+
+// ── Callout config ────────────────────────────────────────────
+const CALLOUT = {
+  NOTE:    { icon: 'fa-info-circle',         label: 'Nota',           cls: 'note'    },
+  TIP:     { icon: 'fa-lightbulb',           label: 'Consejo',        cls: 'tip'     },
+  KEY:     { icon: 'fa-key',                 label: 'Concepto clave', cls: 'key'     },
+  WARNING: { icon: 'fa-exclamation-triangle', label: 'Atención',      cls: 'warning' },
+  INSIGHT: { icon: 'fa-brain',               label: 'Reflexión',      cls: 'insight' },
+};
+
+function applyCallouts(html) {
+  const types = Object.keys(CALLOUT).join('|');
+  const re = new RegExp(
+    `<blockquote>\\s*<p>\\[!(${types})\\](?:</p>)?([\\s\\S]*?)</blockquote>`,
+    'gi'
+  );
+  return html.replace(re, (_, type, inner) => {
+    const cfg = CALLOUT[type.toUpperCase()];
+    const trimmed = inner.trim().replace(/<\/p>$/, '');
+    const content = trimmed.startsWith('<p>') ? trimmed : `<p>${trimmed}</p>`;
+    return `<div class="callout callout-${cfg.cls}">` +
+      `<div class="callout-label"><i class="fas ${cfg.icon}"></i> ${cfg.label}</div>` +
+      `<div class="callout-text">${content}</div>` +
+      `</div>`;
+  });
+}
 
 // ── Helpers ──────────────────────────────────────────────────
 function formatDate(dateStr) {
@@ -57,7 +86,7 @@ for (const file of mdFiles) {
     continue;
   }
 
-  const bodyHtml  = marked(content);
+  const bodyHtml  = applyCallouts(marked(content));
   const mins      = fm.readTime || readTime(content);
   const dateFmt   = formatDate(fm.date);
   const tagsHtml  = (fm.tags || []).map(t => `<span class="a-tag">${t}</span>`).join('');
