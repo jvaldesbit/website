@@ -113,6 +113,30 @@
       print-color-adjust: exact;
     }
 
+    /* Logros bullets */
+    .achievement-list {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .achievement-list li {
+      font-size: 6.5pt;
+      color: var(--sidebar-text);
+      line-height: 1.6;
+      padding-left: 11px;
+      position: relative;
+    }
+    .achievement-list li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
     .sidebar-watermark {
       position: absolute;
       bottom: 10px;
@@ -284,22 +308,22 @@
     }
 
     .section-title {
-      font-size: 7pt;
+      font-size: 8pt;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 1.8px;
+      letter-spacing: 2px;
       color: #0d1117;
-      padding-bottom: 3px;
+      padding-bottom: 5px;
       border-bottom: 1.5px solid var(--accent);
-      margin-bottom: 9px;
+      margin-bottom: 12px;
       -webkit-print-color-adjust: exact;
       print-color-adjust: exact;
     }
 
     .profile-text {
-      font-size: 9.5pt;
+      font-size: 8.5pt;
       color: var(--text);
-      line-height: 1.7;
+      line-height: 1.75;
       margin-bottom: 8px;
       text-align: justify;
     }
@@ -312,25 +336,62 @@
     .areas-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 8px;
+      gap: 12px 24px;
     }
 
     .area-item {
-      padding: 7px 9px;
-      border-left: 2px solid var(--accent);
-      background: #f8fafc;
+      display: flex;
+      gap: 9px;
+      align-items: flex-start;
+    }
+    .area-icon {
+      color: var(--accent);
+      font-size: 8pt;
+      margin-top: 1px;
+      min-width: 13px;
       -webkit-print-color-adjust: exact;
       print-color-adjust: exact;
     }
     .area-item h4 {
-      font-size: 7pt;
+      font-size: 8pt;
       font-weight: 700;
       color: #0d1117;
-      margin-bottom: 2px;
+      margin-bottom: 3px;
     }
     .area-item p {
-      font-size: 6.5pt;
+      font-size: 8pt;
       color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    /* ── Tech Stack Table ─────────────────────────── */
+    .tech-stack-table {
+      display: flex;
+      flex-direction: column;
+    }
+    .ts-row {
+      display: grid;
+      grid-template-columns: 78px 1fr;
+      gap: 12px;
+      padding: 5px 0;
+      border-bottom: 1px solid var(--border);
+      align-items: baseline;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .ts-row:last-child { border-bottom: none; }
+    .ts-cat {
+      font-size: 6.5pt;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .ts-list {
+      font-size: 8pt;
+      color: var(--text);
       line-height: 1.5;
     }
 
@@ -353,12 +414,12 @@
       margin-bottom: 1px;
     }
     .exp-title {
-      font-size: 8.5pt;
+      font-size: 9pt;
       font-weight: 700;
       color: #0d1117;
     }
     .exp-date {
-      font-size: 6.5pt;
+      font-size: 7pt;
       font-weight: 600;
       color: var(--accent);
       white-space: nowrap;
@@ -367,31 +428,32 @@
       print-color-adjust: exact;
     }
     .exp-company {
-      font-size: 7pt;
+      font-size: 8pt;
       color: var(--text-muted);
-      margin-bottom: 4px;
+      margin-bottom: 5px;
     }
     .exp-intro {
-      font-size: 7.5pt;
-      color: var(--text);
-      margin-bottom: 4px;
-      line-height: 1.5;
+      font-size: 8pt;
+      color: var(--text-muted);
+      margin-bottom: 5px;
+      line-height: 1.65;
+      font-style: italic;
     }
     .exp-bullets {
       padding-left: 13px;
-      margin-bottom: 4px;
+      margin-bottom: 5px;
     }
     .exp-bullets li {
-      font-size: 7pt;
+      font-size: 8pt;
       color: var(--text);
-      line-height: 1.55;
-      margin-bottom: 1px;
+      line-height: 1.65;
+      margin-bottom: 2px;
     }
     .exp-tech {
-      font-size: 6.5pt;
+      font-size: 7.5pt;
       color: var(--text-muted);
       font-style: italic;
-      margin-top: 3px;
+      margin-top: 4px;
     }
 
     /* Page 2 main header */
@@ -515,12 +577,29 @@
       <div class="sidebar-section">
         <h3>Certificaciones</h3>
         <div class="edu-item">
-          <div class="edu-name">Terraform: De principiante a certificado</div>
-          <div class="edu-date">2024</div>
+          <div class="edu-name">GOLANG: De cero a Master</div>
+          <div class="edu-school">Udemy</div>
+          <div class="edu-date">oct. 2025</div>
         </div>
         <div class="edu-item">
-          <div class="edu-name">GOLANG: Curso profesional — De cero a Master</div>
-          <div class="edu-date">2025</div>
+          <div class="edu-name">Terraform: De principiante a certificado</div>
+          <div class="edu-school">Udemy</div>
+          <div class="edu-date">ago. 2024</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-name">AWS Cloud Practitioner</div>
+          <div class="edu-school">Platzi</div>
+          <div class="edu-date">nov. 2022</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-name">Python</div>
+          <div class="edu-school">HackerRank</div>
+          <div class="edu-date">may. 2020</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-name">Curso Django + Python &amp; REST</div>
+          <div class="edu-school">KeepCoding</div>
+          <div class="edu-date">ago. 2019</div>
         </div>
       </div>
 
@@ -535,7 +614,7 @@
 
       <!-- Perfil Profesional -->
       <div class="cv-section">
-        <h2 class="section-title" style="font-size: 16pt; letter-spacing: 0.5px; border-bottom-width: 2px; padding-bottom: 6px; margin-bottom: 12px;">Perfil Profesional</h2>
+        <h2 class="section-title">Perfil Profesional</h2>
         <p class="profile-text">
           Soy <strong>Arquitecto de Software y Líder Técnico</strong> con más de 9 años de experiencia diseñando, construyendo y evolucionando plataformas de software de alta disponibilidad. Me apasiona transformar problemas complejos de negocio en soluciones simples, escalables y mantenibles, combinando arquitectura, desarrollo y liderazgo técnico.
         </p>
@@ -556,35 +635,75 @@
         <div class="areas-grid">
 
           <div class="area-item">
-            <h4>Liderazgo Técnico</h4>
-            <p>Liderazgo de equipos distribuidos, mentoría técnica y code reviews. Refinamiento del backlog, estimaciones y planificación de sprints. Definición de estándares y mejores prácticas de ingeniería.</p>
+            <div class="area-icon"><i class="fas fa-users"></i></div>
+            <div>
+              <h4>Liderazgo Técnico</h4>
+              <p>Equipos distribuidos, mentoría técnica y code reviews. Refinamiento del backlog, estimaciones y planificación. Estándares y mejores prácticas de ingeniería.</p>
+            </div>
           </div>
 
           <div class="area-item">
-            <h4>Arquitectura &amp; Desarrollo</h4>
-            <p>Diseño con arquitecturas monolíticas, microservicios y serverless. DDD, SOLID y patrones de diseño. Cloud-native, Twelve-Factor App y sistemas distribuidos. APIs REST, gRPC, GraphQL.</p>
+            <div class="area-icon"><i class="fas fa-sitemap"></i></div>
+            <div>
+              <h4>Arquitectura &amp; Desarrollo</h4>
+              <p>Microservicios, serverless, DDD, SOLID. Cloud-native y Twelve-Factor App. APIs REST, gRPC, GraphQL.</p>
+            </div>
           </div>
 
           <div class="area-item">
-            <h4>Seguridad &amp; Cumplimiento</h4>
-            <p>DevSecOps, análisis estático con SonarQube, directrices OWASP Top 10 e implementación de controles ISO 27001. Auditoría y remediación de vulnerabilidades en APIs y aplicaciones web.</p>
+            <div class="area-icon"><i class="fas fa-lock"></i></div>
+            <div>
+              <h4>Seguridad &amp; Cumplimiento</h4>
+              <p>DevSecOps, SonarQube, OWASP Top 10 e ISO 27001. Auditoría y remediación de vulnerabilidades en APIs y aplicaciones web.</p>
+            </div>
           </div>
 
           <div class="area-item">
-            <h4>DevOps, Cloud &amp; Observabilidad</h4>
-            <p>Infraestructura como código con Terraform y CDK. AWS (ECS, Lambda, API Gateway) y CI/CD con GitHub Actions. Observabilidad con New Relic y CloudWatch.</p>
+            <div class="area-icon"><i class="fas fa-cloud"></i></div>
+            <div>
+              <h4>DevOps, Cloud &amp; Observabilidad</h4>
+              <p>Terraform, CDK. AWS: ECS, Lambda, API Gateway. CI/CD con GitHub Actions. New Relic y CloudWatch.</p>
+            </div>
           </div>
 
           <div class="area-item">
-            <h4>Stack Tecnológico Principal</h4>
-            <p>Python (Django, FastAPI, Flask, Starlette), Go (Gin), PostgreSQL, MongoDB, Redis, Kafka, Airflow, Celery, Docker, Terraform, CDK, AWS.</p>
+            <div class="area-icon"><i class="fas fa-brain"></i></div>
+            <div>
+              <h4>IA &amp; Large Language Models</h4>
+              <p>Integración de LLMs en aplicaciones empresariales. Asistentes con MCP, LangChain y LlamaIndex.</p>
+            </div>
           </div>
 
-          <div class="area-item">
-            <h4>Inteligencia Artificial &amp; LLMs</h4>
-            <p>Integración de LLMs en aplicaciones empresariales. Asistentes inteligentes, automatización de procesos y soluciones de IA generativa con MCP, LangChain y LlamaIndex.</p>
-          </div>
+        </div>
+      </div>
 
+      <div class="cv-section">
+        <h3 class="section-title">Stack Tecnológico</h3>
+        <div class="tech-stack-table">
+          <div class="ts-row">
+            <span class="ts-cat">Lenguajes</span>
+            <span class="ts-list">Python &nbsp;·&nbsp; Go</span>
+          </div>
+          <div class="ts-row">
+            <span class="ts-cat">Frameworks</span>
+            <span class="ts-list">Django &nbsp;·&nbsp; FastAPI &nbsp;·&nbsp; Flask &nbsp;·&nbsp; Starlette &nbsp;·&nbsp; Gin</span>
+          </div>
+          <div class="ts-row">
+            <span class="ts-cat">Cloud &amp; Infra</span>
+            <span class="ts-list">AWS (ECS, Lambda, API Gateway) &nbsp;·&nbsp; Terraform &nbsp;·&nbsp; CDK &nbsp;·&nbsp; Docker &nbsp;·&nbsp; GitHub Actions</span>
+          </div>
+          <div class="ts-row">
+            <span class="ts-cat">Datos</span>
+            <span class="ts-list">PostgreSQL &nbsp;·&nbsp; MongoDB &nbsp;·&nbsp; Redis &nbsp;·&nbsp; Kafka &nbsp;·&nbsp; Airflow &nbsp;·&nbsp; Celery</span>
+          </div>
+          <div class="ts-row">
+            <span class="ts-cat">APIs</span>
+            <span class="ts-list">REST &nbsp;·&nbsp; gRPC &nbsp;·&nbsp; GraphQL</span>
+          </div>
+          <div class="ts-row">
+            <span class="ts-cat">IA &amp; LLMs</span>
+            <span class="ts-list">LangChain &nbsp;·&nbsp; LlamaIndex &nbsp;·&nbsp; MCP &nbsp;·&nbsp; OpenAI &nbsp;·&nbsp; Gemini</span>
+          </div>
         </div>
       </div>
 
@@ -603,44 +722,7 @@
         <div class="sh-sub">jcvb.com.co</div>
       </div>
 
-      <div class="sidebar-section" style="margin-top: 4px;">
-        <h3>Stack Tecnológico</h3>
-        <div class="tech-tags">
-          <span class="tech-tag">Python</span>
-          <span class="tech-tag">Go</span>
-          <span class="tech-tag">Django</span>
-          <span class="tech-tag">FastAPI</span>
-          <span class="tech-tag">Flask</span>
-          <span class="tech-tag">Gin</span>
-          <span class="tech-tag">AWS</span>
-          <span class="tech-tag">ECS</span>
-          <span class="tech-tag">Lambda</span>
-          <span class="tech-tag">API Gateway</span>
-          <span class="tech-tag">Terraform</span>
-          <span class="tech-tag">CDK</span>
-          <span class="tech-tag">Docker</span>
-          <span class="tech-tag">GitHub Actions</span>
-          <span class="tech-tag">PostgreSQL</span>
-          <span class="tech-tag">MongoDB</span>
-          <span class="tech-tag">Redis</span>
-          <span class="tech-tag">Kafka</span>
-          <span class="tech-tag">Airflow</span>
-          <span class="tech-tag">Celery</span>
-          <span class="tech-tag">REST</span>
-          <span class="tech-tag">gRPC</span>
-          <span class="tech-tag">GraphQL</span>
-          <span class="tech-tag">LangChain</span>
-          <span class="tech-tag">LlamaIndex</span>
-          <span class="tech-tag">MCP</span>
-          <span class="tech-tag">New Relic</span>
-          <span class="tech-tag">CloudWatch</span>
-          <span class="tech-tag">SonarQube</span>
-        </div>
-      </div>
-
-      <div class="sidebar-divider"></div>
-
-      <div class="sidebar-section">
+      <div class="sidebar-section" style="margin-top: 6px;">
         <h3>Idiomas</h3>
         <div class="contact-item">
           <i class="fas fa-comment-dots"></i>
@@ -649,6 +731,10 @@
         <div class="contact-item">
           <i class="fas fa-comment-dots"></i>
           <span>Inglés — Intermedio</span>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-comment-dots"></i>
+          <span>Francés — Principiante</span>
         </div>
       </div>
 
@@ -671,21 +757,14 @@
 
       <div class="sidebar-section">
         <h3>Logros Clave</h3>
-        <div class="contact-item" style="flex-direction: column; gap: 2px; align-items: flex-start;">
-          <span style="font-size: 6.5pt; color: var(--sidebar-text);">1,500 RPS en middleware farmacéutico</span>
-        </div>
-        <div class="contact-item" style="flex-direction: column; gap: 2px; align-items: flex-start;">
-          <span style="font-size: 6.5pt; color: var(--sidebar-text);">40% reducción de costos operacionales</span>
-        </div>
-        <div class="contact-item" style="flex-direction: column; gap: 2px; align-items: flex-start;">
-          <span style="font-size: 6.5pt; color: var(--sidebar-text);">99.9% uptime en arquitecturas ECS</span>
-        </div>
-        <div class="contact-item" style="flex-direction: column; gap: 2px; align-items: flex-start;">
-          <span style="font-size: 6.5pt; color: var(--sidebar-text);">15 ingenieros liderados</span>
-        </div>
-        <div class="contact-item" style="flex-direction: column; gap: 2px; align-items: flex-start;">
-          <span style="font-size: 6.5pt; color: var(--sidebar-text);">50M+ usuarios impactados</span>
-        </div>
+        <ul class="achievement-list">
+          <li>Reduje un 40% los costos de infraestructura AWS optimizando task definitions ECS, políticas de auto-scaling y estrategias de right-sizing en plataforma SaaS multi-tenant.</li>
+          <li>Diseñé middleware capaz de procesar 1,500 RPS en tiempo real con arquitectura tolerante a fallos, logrando 99.9% de disponibilidad en producción.</li>
+          <li>Automaticé procesos manuales de 4 horas diarias a menos de 5 minutos mediante pipelines de integración con Adobe Commerce y sistemas ERP del sector farmacéutico.</li>
+          <li>Lideré la migración de un monolito a 7 microservicios con comunicación gRPC y despliegue independiente, reduciendo el time-to-market en un 60%.</li>
+          <li>Implementé controles ISO 27001 y OWASP Top 10 logrando cero incidentes de seguridad críticos durante 3 años consecutivos en producción.</li>
+          <li>Arquitecté un sistema CI/CD multi-cuenta con GitHub Actions y Terraform que permite desplegar cada microservicio de forma independiente a N cuentas AWS.</li>
+        </ul>
       </div>
 
       <div class="sidebar-watermark">02 / 07 / 2026</div>
@@ -695,11 +774,7 @@
     <!-- Main Page 2 -->
     <main class="main">
 
-      <div class="page2-header">
-        <span class="page2-name">Julián Valdés Bello</span>
-        <span class="page2-page">Technical Lead · Software Architect</span>
-      </div>
-      <div class="main-accent-bar" style="margin-bottom: 12px;"></div>
+      <div class="main-accent-bar" style="margin-bottom: 16px;"></div>
 
       <div class="cv-section" style="margin-bottom: 10px;">
         <h3 class="section-title">Experiencia</h3>
@@ -711,7 +786,7 @@
           <div class="exp-title">Technical Lead | Software Architect</div>
           <div class="exp-date">02/2022 — 06/2026</div>
         </div>
-        <div class="exp-company">Omni.pro &nbsp;·&nbsp; Panamá &nbsp;·&nbsp; Remoto</div>
+        <div class="exp-company">Omni.pro &nbsp;·&nbsp; América Latina &nbsp;·&nbsp; Remoto</div>
         <p class="exp-intro">Lideré la arquitectura y evolución de plataformas SaaS cloud-native, impulsando la estrategia técnica y las mejores prácticas de ingeniería para construir sistemas distribuidos escalables y resilientes.</p>
         <ul class="exp-bullets">
           <li>Definición de arquitecturas de software y patrones que garantizan escalabilidad, resiliencia y alta disponibilidad.</li>
@@ -732,7 +807,7 @@
           <div class="exp-title">Senior Backend Developer</div>
           <div class="exp-date">01/2021 — 02/2022</div>
         </div>
-        <div class="exp-company">Omni.pro &nbsp;·&nbsp; Panamá &nbsp;·&nbsp; Remoto</div>
+        <div class="exp-company">Omni.pro &nbsp;·&nbsp; América Latina &nbsp;·&nbsp; Remoto</div>
         <p class="exp-intro">Diseñé y desarrollé componentes backend modulares para una plataforma SaaS cloud, colaborando con equipos multifuncionales para entregar software de alta calidad en entorno ágil.</p>
         <ul class="exp-bullets">
           <li>Construcción de servicios backend de alto rendimiento con Python (Django), optimizando lógica de negocio e interacciones con base de datos.</li>
