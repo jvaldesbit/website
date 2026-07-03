@@ -50,8 +50,11 @@ jobs:
       - name: Build articles
         run: npm run build
 
-      - name: Remove node_modules before upload
-        run: rm -rf node_modules
+      - name: Prepare site for deployment
+        run: |
+          rm -rf node_modules scripts templates
+          find articles -name "*.md" -delete
+          rm -f package.json package-lock.json
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
