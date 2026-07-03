@@ -18,37 +18,21 @@ Construir esta arquitectura no consiste en agregar un tenant_id a las tablas o e
 
 Antes de hablar de arquitectura Multi-Tenant, vale la pena entender qué es un **Order Management System (OMS)** y por qué representa un desafío muy diferente al de otros sistemas empresariales.
 
-En términos simples, un OMS es el sistema responsable de administrar el ciclo de vida de una orden de venta, sin importar por qué canal fue generada. Esa orden puede provenir de un e-commerce, una tienda física, un marketplace, un canal de ventas asistidas, una conversación por WhatsApp o cualquier otro punto de contacto con el cliente.
+En términos simples, un OMS administra el ciclo de vida de una orden de venta, sin importar el canal por el que fue generada. Una orden puede provenir de un e-commerce, una tienda física, un marketplace o cualquier otro canal de venta.
 
-Hasta aquí parece un sistema relativamente sencillo: recibe una orden y la procesa.
+Sin embargo, un OMS moderno hace mucho más que gestionar órdenes. Antes de permitir una venta debe responder, en cuestión de milisegundos, preguntas como:
 
-La realidad es muy distinta.
+- ¿Existe inventario disponible?
+- ¿Desde dónde puede despacharse?
+- ¿Qué reglas de negocio aplican?
+- ¿Cuál es el costo y tiempo de entrega?
+- ¿Cómo debe cumplirse la orden?
 
-Un OMS moderno se convierte en el cerebro operativo de una organización. Antes de permitir una venta debe responder preguntas críticas en cuestión de milisegundos:
+Para responder estas preguntas, un OMS se integra con múltiples sistemas como ERP, WMS, PIM, POS, plataformas de e-commerce y transportadoras. Toda esta información cambia constantemente y debe consolidarse en tiempo real para tomar decisiones correctas.
 
-* ¿Existe inventario disponible?
-* ¿En cuál tienda o centro de distribución?
-* ¿Ese inventario realmente puede venderse o está reservado?
-* ¿Aplica alguna regla de negocio para ese cliente o canal?
-* ¿Cuál es el costo de envío?
-* ¿Qué método de entrega puede utilizarse?
-* ¿Cuál es el tiempo estimado de entrega?
-* ¿Es necesario dividir el pedido entre varias ubicaciones?
-* ¿Debe despacharse inmediatamente o esperar reposición?
+Pero la verdadera complejidad aparece cuando cada cliente opera de forma diferente. Cada empresa tiene sus propias reglas de inventario, abastecimiento, logística y cumplimiento de pedidos. Lo que funciona para un cliente puede ser completamente diferente para otro, incluso dentro de la misma industria.
 
-Cada una de estas respuestas depende de información que cambia constantemente.
-
-Por esta razón, un OMS rara vez trabaja de forma aislada. Generalmente se integra con múltiples plataformas especializadas, como sistemas de inventario, WMS (Warehouse Management System), ERP (Enterprise Resource Planning), PIM (Product Information Management), POS (Point of Sale), plataformas de e-commerce, servicios de facturación, transportadoras y otros componentes del ecosistema tecnológico de una empresa.
-
-Uno de los mejores ejemplos es la gestión de inventario. El OMS recibe continuamente actualizaciones provenientes de diferentes sistemas: movimientos masivos de inventario, ventas, devoluciones, reservas, transferencias entre bodegas y ajustes operativos. Toda esa información debe consolidarse para calcular, en tiempo real, si un producto realmente puede venderse.
-
-Y aquí aparece una complejidad que pocas veces se menciona: **cada empresa administra su operación de manera diferente**.
-
-Algunos clientes trabajan con inventarios de seguridad, otros permiten ventas sobre abastecimiento futuro; algunos manejan transferencias entre tiendas, otros realizan entregas parciales; incluso la forma de calcular la disponibilidad puede cambiar completamente entre dos organizaciones del mismo sector.
-
-Todo esto convierte al OMS en una pieza crítica dentro de la operación. No solo administra órdenes; coordina información proveniente de múltiples sistemas, aplica reglas de negocio específicas para cada cliente y toma decisiones que impactan directamente la experiencia del consumidor final.
-
-Comprender esta complejidad fue fundamental para el diseño de la arquitectura. Porque si construir un SaaS Multi-Tenant ya representa un reto, hacerlo sobre un sistema que debe tomar este tipo de decisiones en tiempo real cambia completamente la forma de pensar la arquitectura.
+Esa combinación de decisiones en tiempo real, múltiples integraciones y reglas de negocio altamente personalizadas convierte al OMS en un excelente caso de estudio para hablar de arquitecturas Multi-Tenant. Porque el reto no era únicamente aislar la información de cada cliente, sino construir una plataforma capaz de adaptarse a formas de operar completamente distintas sin perder rendimiento ni escalabilidad.
 
 ## La primera gran decisión: ¿qué significa realmente un tenant?
 
@@ -91,13 +75,17 @@ Imaginemos un microservicio de inventario ejecutándose sobre una base de datos 
 
 Estas preguntas terminaron influyendo mucho más en nuestra arquitectura que la propia estrategia de persistencia.
 
-### El nacimiento del tenant de infraestructura
+### El tenant desde la perspectiva de la infraestructura
 
-Comprendimos que existían dos tipos de tenant.
+Fue entonces cuando dejamos de pensar en un único concepto de tenant.
 
-El primero representa el negocio.
+Comenzamos a analizar el tenant desde dos perspectivas completamente diferentes.
 
-El segundo representa cómo ese negocio consume infraestructura.
+La primera responde al negocio.
+
+La segunda responde a la infraestructura.
+
+Son problemas distintos y, por lo tanto, requieren decisiones de arquitectura distintas.
 
 La mayoría de la documentación sobre Multi-Tenant se enfoca en cómo segmentar la información dentro de la aplicación: una base de datos por cliente, múltiples esquemas o una única base de datos compartida mediante un `tenant_id`. Todas estas estrategias son completamente válidas y resuelven muy bien el aislamiento lógico de la información.
 
