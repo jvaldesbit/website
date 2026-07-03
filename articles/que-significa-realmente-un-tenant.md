@@ -81,9 +81,10 @@ Fue entonces cuando dejamos de pensar en un único concepto de tenant.
 
 Comenzamos a analizar el tenant desde dos perspectivas completamente diferentes.
 
-La primera responde al negocio.
-
-La segunda responde a la infraestructura.
+| Perspectiva | Pregunta que responde |
+|-------------|-----------------------|
+| **Negocio** | ¿Cómo aislamos la información y las reglas de cada organización? |
+| **Infraestructura** | ¿Dónde vive ese tenant y cómo distribuimos los recursos y costos de operación? |
 
 Son problemas distintos y, por lo tanto, requieren decisiones de arquitectura distintas.
 
