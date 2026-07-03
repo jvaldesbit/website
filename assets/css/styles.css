@@ -1491,18 +1491,29 @@ body {
 .article-card {
     display: flex;
     flex-direction: column;
-    background: var(--card-bg);
-    border: 1px solid var(--border);
+    background: var(--bg-glass);
+    border: 1px solid var(--border-glass);
     border-radius: 12px;
     padding: 1.75rem;
+    padding-top: 1.5rem;
     text-decoration: none;
     color: inherit;
-    transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+    transition: transform 0.25s, box-shadow 0.25s, background 0.25s;
     cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.article-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-green), var(--accent-blue));
 }
 
 .article-card:hover {
-    border-color: var(--accent);
+    background: rgba(0, 255, 136, 0.03);
     transform: translateY(-4px);
     box-shadow: 0 12px 40px rgba(0, 255, 136, 0.1);
 }

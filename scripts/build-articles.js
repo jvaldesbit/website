@@ -60,8 +60,11 @@ function formatDate(dateStr) {
 }
 
 function readTime(content) {
-  const words = content.replace(/```[\s\S]*?```/g, '').split(/\s+/).length;
-  return Math.max(1, Math.ceil(words / 200));
+  const codeBlocks = (content.match(/```[\s\S]*?```/g) || []).join(' ');
+  const codeWords  = codeBlocks.split(/\s+/).filter(Boolean).length;
+  const textWords  = content.replace(/```[\s\S]*?```/g, '').split(/\s+/).filter(Boolean).length;
+  // Technical prose: 160 wpm · code blocks: 80 wpm (slower to parse)
+  return Math.max(1, Math.ceil(textWords / 160 + codeWords / 80));
 }
 
 function slugify(filename) {
