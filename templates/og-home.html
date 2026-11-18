@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<!-- Plantilla de la og-image principal (assets/images/og-image.png). Render a 1200x630. -->
+<link href="https://fonts.googleapis.com/css2?family=Libertinus+Keyboard&family=Raleway:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1200px; height: 630px; overflow: hidden;
+    font-family: 'Raleway', sans-serif; color: #e6edf3;
+    background: radial-gradient(ellipse at 30% 20%, #16263a 0%, #0d1520 55%, #0a0f18 100%);
+    position: relative;
+  }
+  .code { position: absolute; font-family: monospace; font-size: 13px; line-height: 1.45;
+          color: rgba(136,146,176,0.22); white-space: pre; }
+  .code.tr { top: 26px; right: 30px; transform: rotate(-8deg); }
+  .code.bl { bottom: 50px; left: 36px; transform: rotate(-8deg); }
+  .left { position: absolute; left: 70px; top: 50%; transform: translateY(-50%); width: 760px; }
+  .logo { font-family: 'Libertinus Keyboard', serif; font-size: 52px; letter-spacing: 2px;
+          background: linear-gradient(90deg, #00ff88, #00d4ff); -webkit-background-clip: text;
+          background-clip: text; color: transparent; line-height: 1.1; }
+  .role { font-size: 34px; font-weight: 700; color: #fff; margin-top: 10px; }
+  .company { font-size: 22px; color: #8892b0; margin-top: 22px; letter-spacing: 0.5px; }
+  .stack { font-size: 21px; font-weight: 600; color: #00ff88; margin-top: 24px; }
+  .tag { font-size: 19px; color: #8892b0; margin-top: 16px; }
+  .right { position: absolute; right: 120px; top: 108px; width: 200px; text-align: center; }
+  .photo { width: 190px; height: 190px; border-radius: 50%; border: 4px solid #00e5b0;
+           object-fit: cover; object-position: center top; box-shadow: 0 0 30px rgba(0,255,136,0.25); }
+  .stat { margin-top: 18px; }
+  .stat:first-of-type { margin-top: 36px; }
+  .num { font-size: 26px; font-weight: 800; color: #00ff88; line-height: 1.1; }
+  .lbl { font-size: 14px; color: #8892b0; }
+</style>
+</head>
+<body>
+  <div class="code tr">agent = VoiceAgent(
+  llm="claude-haiku",
+  stt="deepgram", tts="elevenlabs",
+)</div>
+  <div class="code bl">judge.score(models, rubric)
+  → latency · cost · accuracy</div>
+
+  <div class="left">
+    <div class="logo">JULIÁN VALDÉS</div>
+    <div class="role">AI Architect &amp; Tech Lead</div>
+    <div class="company">@HEYGIA</div>
+    <div class="stack">Voice AI • LLMs • MCP • Go • Python • AWS</div>
+    <div class="tag">9+ años · agentes de IA del prototipo a producción</div>
+  </div>
+
+  <div class="right">
+    <img class="photo" src="../assets/images/profile.JPEG" alt="">
+    <div class="stat"><div class="num">5 sem</div><div class="lbl">Agente de voz a producción</div></div>
+    <div class="stat"><div class="num">2.830</div><div class="lbl">Commits AI-native en 9 sem</div></div>
+    <div class="stat"><div class="num">+15</div><div class="lbl">Ingenieros dirigidos</div></div>
+  </div>
+</body>
+</html>
