@@ -513,8 +513,8 @@
     <aside class="sidebar">
 
       <div class="sidebar-header">
-        <div class="sh-role">Technical Lead</div>
-        <div class="sh-role">Software Architect</div>
+        <div class="sh-role">AI Architect</div>
+        <div class="sh-role">Tech Lead</div>
         <div class="sh-sub">jcvb.com.co</div>
       </div>
 
@@ -603,7 +603,7 @@
         </div>
       </div>
 
-      <div class="sidebar-watermark">02 / 07 / 2026</div>
+      <div class="sidebar-watermark">17 / 11 / 2026</div>
 
     </aside>
 
@@ -616,64 +616,33 @@
       <div class="cv-section">
         <h2 class="section-title">Perfil Profesional</h2>
         <p class="profile-text">
-          Soy <strong>Arquitecto de Software y Líder Técnico</strong> con más de 9 años de experiencia diseñando, construyendo y evolucionando plataformas de software de alta disponibilidad. Me apasiona transformar problemas complejos de negocio en soluciones simples, escalables y mantenibles, combinando arquitectura, desarrollo y liderazgo técnico.
+          <strong>Arquitecto de IA y Líder Técnico</strong> con más de 9 años de experiencia. Diseño y llevo a producción <strong>agentes de IA conversacional</strong>: agentes de voz con LLMs que atienden llamadas reales y se integran con sistemas de negocio, con evaluación objetiva de modelos (LLM, STT, TTS), privacidad por diseño y latencias de milisegundos.
         </p>
         <p class="profile-text">
-          A lo largo de mi carrera he liderado equipos multidisciplinarios y participado en el diseño de plataformas SaaS, arquitecturas cloud-native, sistemas distribuidos y microservicios, acompañando todo el ciclo de vida del software, desde la definición técnica hasta su despliegue y operación en producción.
-        </p>
-        <p class="profile-text">
-          Mi experiencia se centra en la construcción de soluciones backend utilizando principalmente <strong>Go (Gin)</strong> y <strong>Python (Django, FastAPI, Flask y Starlette)</strong>, diseñando APIs REST, gRPC y GraphQL, e implementando arquitecturas orientadas a eventos y servicios distribuidos sobre AWS.
-        </p>
-        <p class="profile-text">
-          Me gusta involucrarme tanto en la visión técnica como en la ejecución: definir arquitecturas, desarrollar componentes críticos, realizar revisiones de código, acompañar a los equipos de ingeniería, participar en la definición funcional junto a Product Owners y promover buenas prácticas de ingeniería que permitan construir software de calidad.
+          Vengo de construir <strong>plataformas SaaS cloud-native</strong> y sistemas distribuidos con <strong>Go</strong> y <strong>Python</strong> sobre <strong>AWS</strong>, liderando equipos de hasta 15 ingenieros. Me involucro tanto en la visión como en la ejecución: defino la arquitectura, escribo los componentes críticos y practico una ingeniería <strong>AI-native</strong>, orquestando agentes de código con Spec-Driven Development.
         </p>
       </div>
 
-      <!-- Áreas de Experiencia -->
       <div class="cv-section">
-        <h3 class="section-title">Áreas de Experiencia</h3>
-        <div class="areas-grid">
-
-          <div class="area-item">
-            <div class="area-icon"><i class="fas fa-users"></i></div>
-            <div>
-              <h4>Liderazgo Técnico</h4>
-              <p>Equipos distribuidos, mentoría técnica y code reviews. Refinamiento del backlog, estimaciones y planificación. Estándares y mejores prácticas de ingeniería.</p>
-            </div>
+        <h3 class="section-title">Experiencia</h3>
+        <div class="exp-item">
+          <div class="exp-header">
+            <div class="exp-title">AI Architect &amp; Tech Lead</div>
+            <div class="exp-date">09/2026 — Presente</div>
           </div>
-
-          <div class="area-item">
-            <div class="area-icon"><i class="fas fa-sitemap"></i></div>
-            <div>
-              <h4>Arquitectura &amp; Desarrollo</h4>
-              <p>Microservicios, serverless, DDD, SOLID. Cloud-native y Twelve-Factor App. APIs REST, gRPC, GraphQL.</p>
-            </div>
-          </div>
-
-          <div class="area-item">
-            <div class="area-icon"><i class="fas fa-lock"></i></div>
-            <div>
-              <h4>Seguridad &amp; Cumplimiento</h4>
-              <p>DevSecOps, SonarQube, OWASP Top 10 e ISO 27001. Auditoría y remediación de vulnerabilidades en APIs y aplicaciones web.</p>
-            </div>
-          </div>
-
-          <div class="area-item">
-            <div class="area-icon"><i class="fas fa-cloud"></i></div>
-            <div>
-              <h4>DevOps, Cloud &amp; Observabilidad</h4>
-              <p>Terraform, CDK. AWS: ECS, Lambda, API Gateway. CI/CD con GitHub Actions. New Relic y CloudWatch.</p>
-            </div>
-          </div>
-
-          <div class="area-item">
-            <div class="area-icon"><i class="fas fa-brain"></i></div>
-            <div>
-              <h4>IA &amp; Large Language Models</h4>
-              <p>Integración de LLMs en aplicaciones empresariales. Asistentes con MCP, LangChain y LlamaIndex.</p>
-            </div>
-          </div>
-
+          <div class="exp-company">HeyGIA &nbsp;·&nbsp; Agentes de voz con IA &nbsp;·&nbsp; Remoto</div>
+          <p class="exp-intro">Diseñé y llevé a producción en 5 semanas el sistema con el que una cadena de restaurantes líder en México recibe pedidos telefónicos atendidos de punta a punta por un agente de voz con IA.</p>
+          <ul class="exp-bullets">
+            <li><strong>Pasarela de pedidos por voz</strong> (Go hexagonal + React) que fundé: expone <em>tools</em> al agente LLM y convierte lo dictado en un pedido válido en el POS. Contrato SemVer de 17 tools, p99 ≤ 50 ms por tool, envío idempotente.</li>
+            <li><strong>Dueño técnico del agente de voz</strong> (LiveKit Agents): LLM Claude Haiku con caché de prompt y fallback a OpenAI, STT Deepgram, TTS ElevenLabs, VAD y detección de turno; proveedores como adaptadores intercambiables en caliente.</li>
+            <li>Flujo de <strong>llamadas entrantes</strong> de punta a punta: carrier SIP → LiveKit → dialer → agente en ECS → POS, con transferencia a tienda por SIP.</li>
+            <li><strong>Arena de evaluación de LLMs</strong> por objetivos de negocio: cliente simulado, N modelos de 25 proveedores, juez LLM a ciegas con rúbrica ponderada, latencia, costo y servidor MCP.</li>
+            <li><strong>Benchmark de STT</strong> con 1.271 segmentos de 87 llamadas reales calificados a ciegas: 71% de acierto vs 54% del proveedor en uso (WER 18% → 13%).</li>
+            <li><strong>Privacidad por diseño</strong>: PII fuera del LLM, cifrado AES-256-GCM por tenant, enmascarado tipado y PCI fuera de alcance.</li>
+            <li><strong>Ingeniería AI-native</strong>: orquesté agentes de código (lead + workers) con Spec-Driven Development y ADRs: 2.830 commits, 559 tickets y 48 épicas en 9 semanas.</li>
+            <li>AWS con Terraform en 3 cuentas: ECS Fargate ARM64, API Gateway + Cognito, Lambda, Valkey, MongoDB Atlas, Glue/Athena.</li>
+          </ul>
+          <p class="exp-tech">Go · Python · LiveKit · Claude · OpenAI · Deepgram · ElevenLabs · MCP · LiteLLM · React · AWS · Terraform · MongoDB</p>
         </div>
       </div>
 
@@ -681,28 +650,28 @@
         <h3 class="section-title">Stack Tecnológico</h3>
         <div class="tech-stack-table">
           <div class="ts-row">
+            <span class="ts-cat">IA &amp; LLMs</span>
+            <span class="ts-list">Claude &nbsp;·&nbsp; OpenAI &nbsp;·&nbsp; Gemini &nbsp;·&nbsp; Tool calling &nbsp;·&nbsp; MCP &nbsp;·&nbsp; LiteLLM &nbsp;·&nbsp; LLM-as-judge &nbsp;·&nbsp; LangChain</span>
+          </div>
+          <div class="ts-row">
+            <span class="ts-cat">Voice AI</span>
+            <span class="ts-list">LiveKit Agents &nbsp;·&nbsp; Deepgram &nbsp;·&nbsp; Soniox &nbsp;·&nbsp; ElevenLabs &nbsp;·&nbsp; Cartesia &nbsp;·&nbsp; Silero VAD &nbsp;·&nbsp; SIP</span>
+          </div>
+          <div class="ts-row">
             <span class="ts-cat">Lenguajes</span>
-            <span class="ts-list">Python &nbsp;·&nbsp; Go</span>
+            <span class="ts-list">Go &nbsp;·&nbsp; Python &nbsp;·&nbsp; TypeScript</span>
           </div>
           <div class="ts-row">
             <span class="ts-cat">Frameworks</span>
-            <span class="ts-list">Django &nbsp;·&nbsp; FastAPI &nbsp;·&nbsp; Flask &nbsp;·&nbsp; Starlette &nbsp;·&nbsp; Gin</span>
+            <span class="ts-list">FastAPI &nbsp;·&nbsp; Django &nbsp;·&nbsp; Flask &nbsp;·&nbsp; Gin &nbsp;·&nbsp; React</span>
           </div>
           <div class="ts-row">
             <span class="ts-cat">Cloud &amp; Infra</span>
-            <span class="ts-list">AWS (ECS, Lambda, API Gateway) &nbsp;·&nbsp; Terraform &nbsp;·&nbsp; CDK &nbsp;·&nbsp; Docker &nbsp;·&nbsp; GitHub Actions</span>
+            <span class="ts-list">AWS (ECS Fargate, Lambda, API Gateway, Cognito) &nbsp;·&nbsp; Terraform &nbsp;·&nbsp; CDK &nbsp;·&nbsp; Docker</span>
           </div>
           <div class="ts-row">
             <span class="ts-cat">Datos</span>
-            <span class="ts-list">PostgreSQL &nbsp;·&nbsp; MongoDB &nbsp;·&nbsp; Redis &nbsp;·&nbsp; Kafka &nbsp;·&nbsp; Airflow &nbsp;·&nbsp; Celery</span>
-          </div>
-          <div class="ts-row">
-            <span class="ts-cat">APIs</span>
-            <span class="ts-list">REST &nbsp;·&nbsp; gRPC &nbsp;·&nbsp; GraphQL</span>
-          </div>
-          <div class="ts-row">
-            <span class="ts-cat">IA &amp; LLMs</span>
-            <span class="ts-list">LangChain &nbsp;·&nbsp; LlamaIndex &nbsp;·&nbsp; MCP &nbsp;·&nbsp; OpenAI &nbsp;·&nbsp; Gemini</span>
+            <span class="ts-list">PostgreSQL &nbsp;·&nbsp; MongoDB &nbsp;·&nbsp; Redis/Valkey &nbsp;·&nbsp; DynamoDB &nbsp;·&nbsp; Athena &nbsp;·&nbsp; Kafka</span>
           </div>
         </div>
       </div>
@@ -717,8 +686,8 @@
     <aside class="sidebar">
 
       <div class="sidebar-header">
-        <div class="sh-role">Technical Lead</div>
-        <div class="sh-role">Software Architect</div>
+        <div class="sh-role">AI Architect</div>
+        <div class="sh-role">Tech Lead</div>
         <div class="sh-sub">jcvb.com.co</div>
       </div>
 
@@ -758,16 +727,16 @@
       <div class="sidebar-section">
         <h3>Logros Clave</h3>
         <ul class="achievement-list">
+          <li>Agente de voz con IA en producción en 5 semanas, atendiendo llamadas reales de una cadena de restaurantes líder en México.</li>
+          <li>Elegí STT con datos: benchmark ciego sobre 87 llamadas reales, WER de 18% a 13%.</li>
           <li>Reduje un 40% los costos de infraestructura AWS optimizando task definitions ECS, políticas de auto-scaling y estrategias de right-sizing en plataforma SaaS multi-tenant.</li>
           <li>Diseñé middleware capaz de procesar 1,500 RPS en tiempo real con arquitectura tolerante a fallos, logrando 99.9% de disponibilidad en producción.</li>
           <li>Automaticé procesos manuales de 4 horas diarias a menos de 5 minutos mediante pipelines de integración con Adobe Commerce y sistemas ERP del sector farmacéutico.</li>
           <li>Lideré la migración de un monolito a 7 microservicios con comunicación gRPC y despliegue independiente, reduciendo el time-to-market en un 60%.</li>
-          <li>Implementé controles ISO 27001 y OWASP Top 10 logrando cero incidentes de seguridad críticos durante 3 años consecutivos en producción.</li>
-          <li>Arquitecté un sistema CI/CD multi-cuenta con GitHub Actions y Terraform que permite desplegar cada microservicio de forma independiente a N cuentas AWS.</li>
         </ul>
       </div>
 
-      <div class="sidebar-watermark">02 / 07 / 2026</div>
+      <div class="sidebar-watermark">17 / 11 / 2026</div>
 
     </aside>
 
@@ -777,7 +746,7 @@
       <div class="main-accent-bar" style="margin-bottom: 16px;"></div>
 
       <div class="cv-section" style="margin-bottom: 10px;">
-        <h3 class="section-title">Experiencia</h3>
+        <h3 class="section-title">Experiencia (continuación)</h3>
       </div>
 
       <!-- ── Omni.pro — Technical Lead ── -->

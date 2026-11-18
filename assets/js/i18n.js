@@ -6,12 +6,12 @@ window.i18n = {
       skills: 'Habilidades', articles: 'Blog', contact: 'Contacto'
     },
     hero: {
-      badge: 'Software Architect & Technical Lead • 9+ Años de Experiencia',
-      description: 'Diseño <strong>plataformas cloud-native</strong> y <strong>sistemas distribuidos</strong> que transforman problemas complejos de negocio en <span class="highlight">soluciones escalables de alto impacto</span>.<br><br>He liderado <strong>equipos de ingeniería</strong> y el desarrollo de productos que sirven a más de <span class="highlight">50M+ usuarios</span>, mejorando el <strong>rendimiento</strong>, la <strong>confiabilidad</strong> y reduciendo <span class="highlight">costos operacionales hasta en un 40%</span>.',
+      badge: 'AI Architect & Tech Lead • 9+ Años de Experiencia',
+      description: 'Diseño y llevo a producción <strong>sistemas de IA conversacional</strong>: <span class="highlight">agentes de voz con LLMs</span> que atienden llamadas reales, toman pedidos y los integran con sistemas de negocio, con <strong>evaluación objetiva de modelos</strong>, privacidad por diseño y latencias de milisegundos.<br><br>Antes de eso, 9+ años construyendo <strong>plataformas cloud-native</strong> y <strong>sistemas distribuidos</strong>, liderando equipos y productos que sirven a <span class="highlight">50M+ usuarios</span> y reduciendo <span class="highlight">costos operacionales hasta en un 40%</span>.',
       motto: '"Sin límites, solo posibilidades"',
-      value1: 'Acelero el time-to-market 60%',
-      value2: 'Implemento DevSecOps & OWASP',
-      value3: 'LLMs & AI Integration',
+      value1: 'Agentes de voz con IA en producción',
+      value2: 'Evaluación objetiva de LLMs, STT y TTS',
+      value3: 'Ingeniería AI-native multiagente',
       cta1: 'Trabajemos Juntos',
       cta2: 'Ver Proyectos',
       cta3: 'Descargar CV',
@@ -21,8 +21,8 @@ window.i18n = {
     },
     about: {
       title: 'Sobre mí',
-      intro: 'Soy <strong>Arquitecto de Software y Líder Técnico</strong> con más de 9 años de experiencia diseñando, construyendo y evolucionando plataformas de software de alta disponibilidad. Me apasiona transformar problemas complejos de negocio en soluciones simples, escalables y mantenibles, combinando arquitectura, desarrollo y liderazgo técnico.',
-      narrative: 'A lo largo de mi carrera he liderado equipos multidisciplinarios en el diseño de plataformas SaaS, arquitecturas cloud-native, sistemas distribuidos y microservicios, acompañando todo el ciclo de vida del software, desde la definición técnica hasta su despliegue y operación en producción. Mi experiencia se centra en backend con <strong>Go (Gin)</strong> y <strong>Python (Django, FastAPI, Flask)</strong>, diseñando APIs REST, gRPC y GraphQL, e implementando arquitecturas orientadas a eventos sobre AWS.',
+      intro: 'Soy <strong>Arquitecto de IA y Líder Técnico</strong> con más de 9 años de experiencia diseñando, construyendo y evolucionando plataformas de software de alta disponibilidad. Hoy me enfoco en llevar <strong>agentes de IA</strong> del prototipo a producción: arquitectura, elección y evaluación de modelos, integración con sistemas reales y operación. Me apasiona transformar problemas complejos de negocio en soluciones simples, escalables y mantenibles, combinando arquitectura, desarrollo y liderazgo técnico.',
+      narrative: 'En <strong>HeyGIA</strong> diseñé y llevé a producción en 5 semanas un sistema de pedidos telefónicos atendido por un agente de voz para una cadena de restaurantes líder en México: el agente (LLM + STT + TTS sobre LiveKit) conversa con el cliente y una pasarela en Go que diseñé valida y envía el pedido al POS. A lo largo de mi carrera he liderado equipos multidisciplinarios en el diseño de plataformas SaaS, arquitecturas cloud-native, sistemas distribuidos y microservicios, acompañando todo el ciclo de vida del software, desde la definición técnica hasta su despliegue y operación en producción. Mi experiencia se centra en backend con <strong>Go (Gin)</strong> y <strong>Python (Django, FastAPI, Flask)</strong>, diseñando APIs REST, gRPC y GraphQL, e implementando arquitecturas orientadas a eventos sobre AWS.',
       areasTitle: 'Áreas de experiencia',
       area1Title: 'Liderazgo Técnico',
       area1Text: 'Liderazgo de equipos distribuidos, mentoría técnica y code reviews. Refinamiento técnico, estimaciones y planificación. Definición de estándares y mejores prácticas de ingeniería.',
@@ -34,8 +34,8 @@ window.i18n = {
       area4Text: 'Infraestructura como código con <strong>Terraform y CDK</strong>. Dominio avanzado de servicios AWS (ECS, API Gateway, Lambda) y pipelines CI/CD con GitHub Actions. Observabilidad con New Relic y CloudWatch.',
       area5Title: 'Stack Tecnológico',
       area5Text: '<strong>Python</strong> (Django, Flask, FastAPI, Starlette), <strong>Go</strong> (Gin), PostgreSQL, MongoDB, Redis, Terraform, CDK, AWS, Docker, Kafka, Airflow, Celery.',
-      area6Title: 'Inteligencia Artificial & LLMs',
-      area6Text: 'Integración de Large Language Models (LLMs) en aplicaciones empresariales. Desarrollo de asistentes inteligentes, automatización de procesos y soluciones basadas en IA generativa mediante <strong>MCP, LangChain y LlamaIndex</strong>.'
+      area6Title: 'Arquitectura de IA & Agentes',
+      area6Text: 'Agentes de voz en producción con <strong>LiveKit Agents</strong>: LLM (Claude, OpenAI), STT (Deepgram, Soniox), TTS (ElevenLabs, Cartesia), VAD y detección de turno. Diseño de <strong>tools</strong> y contratos versionados para tool calling, caché de prompt, fallbacks y proveedores intercambiables. Evaluación con <strong>LLM-as-judge</strong>, benchmarks de STT sobre llamadas reales y servidores <strong>MCP</strong>. PII fuera del modelo por diseño.'
     },
     achievements: {
       title: 'Logros Destacados',
@@ -59,7 +59,14 @@ window.i18n = {
       a9Desc: 'Dirigí equipos distribuidos de hasta 15 desarrolladores en múltiples zonas horarias, implementando metodologías ágiles y logrando 98% de retención de talento senior.',
       lPerf: 'Performance', lAuto: 'Automatización', lMicro: 'Microservicios',
       lSec: 'Incidentes', lSeo: 'Tráfico SEO', lSaas: 'Evolución',
-      lCicd: 'Multi-tenant', lInfra: 'Uptime', lLead: 'Equipos'
+      lCicd: 'Multi-tenant', lInfra: 'Uptime', lLead: 'Equipos',
+      ai1Title: 'Agente de Voz en Producción',
+      ai1Desc: 'Diseñé y llevé a producción en 5 semanas un sistema donde un agente de voz con IA atiende llamadas reales y toma pedidos para una cadena de restaurantes líder en México, integrado de punta a punta con su POS.',
+      ai2Title: 'Evaluación Objetiva de Modelos',
+      ai2Desc: 'Califiqué a ciegas 1.271 segmentos de 87 llamadas reales para elegir STT: el candidato acertó 71% frente a 54% del proveedor en uso (WER 18% → 13%) y demostré que la cancelación de ruido empeoraba el resultado.',
+      ai3Title: 'Ingeniería AI-Native Multiagente',
+      ai3Desc: 'Orquesté agentes de código (un lead que revisa e integra, workers en worktrees aislados) con Spec-Driven Development y constituciones ejecutables: 2.830 commits, 559 tickets y 48 épicas en 9 semanas.',
+      lAi1: 'Idea → Producción', lAi2: 'STT en llamadas reales', lAi3: 'Commits en 9 semanas'
     },
     projects: {
       title: 'Proyectos Destacados',
@@ -70,6 +77,12 @@ window.i18n = {
       badgeEnterprise: 'Enterprise',
       badgePersonal: 'Personal',
       moreInfo: 'Más Info',
+      pH1Title: 'Pasarela de Pedidos por Voz con IA',
+      pH1Desc: 'Plataforma agnóstica de restaurante que expone tools a un agente de voz LLM y convierte lo que dicta el cliente en un pedido válido inyectado en el POS. Contrato SemVer con 17 tools, p99 ≤ 50 ms por tool, envío idempotente, configuración por restaurante sin despliegues y cifrado por tenant. En producción para una cadena de restaurantes líder en México.',
+      pH2Title: 'Agente de Voz Conversacional',
+      pH2Desc: 'Agente telefónico sobre LiveKit Agents con Claude Haiku (caché de prompt, fallback a OpenAI), Deepgram y ElevenLabs. Arquitectura hexagonal con proveedores LLM/STT/TTS como adaptadores intercambiables en caliente, llamadas entrantes vía SIP, transferencia a tienda y PII fuera del modelo.',
+      pH3Title: 'LLM Arena — Evaluación por Objetivos',
+      pH3Desc: 'Arena autoalojada que compara LLMs por objetivos de negocio: cliente simulado, mismo guion a N modelos de 25 proveedores, juez LLM a ciegas con rúbrica ponderada, latencia y costo. Incluye prueba en vivo del agente real y servidor MCP.',
       pV1Title: 'Visabot',
       pV1Desc: 'Bot automatizado que detecta cancelaciones en el sistema oficial de citas de visa americana 24/7 y adelanta tu turno. Más de 2,500 citas exitosas con 98% de efectividad y un promedio de 360 días adelantados. Modelo de pago por resultado.',
       pA1Title: 'Alunas',
@@ -89,6 +102,7 @@ window.i18n = {
     },
     experience: {
       title: 'Experiencia',
+      heygiaIntro: 'Arquitecto de IA y líder técnico de la plataforma de agentes de voz. Diseñé y llevé a producción en 5 semanas el sistema con el que una cadena de restaurantes líder en México recibe pedidos telefónicos atendidos de punta a punta por un agente de IA.',
       omni2022Intro: 'Como Technical Lead, lideré la arquitectura y evolución de plataformas SaaS cloud-native, impulsando la estrategia técnica, la arquitectura de software y las mejores prácticas de ingeniería para construir sistemas distribuidos escalables, resilientes y mantenibles.',
       omni2021Intro: 'Como Senior Backend Developer, participé en el diseño y desarrollo de una plataforma SaaS cloud, construyendo soluciones backend escalables y colaborando estrechamente con equipos multifuncionales para entregar software de alta calidad.',
       apiuxIntro: 'Como Backend Software Engineer, contribuí al diseño y desarrollo de soluciones SaaS, construyendo servicios backend escalables y colaborando con equipos de ingeniería para entregar software de alta calidad.',
@@ -131,12 +145,12 @@ window.i18n = {
       skills: 'Skills', articles: 'Blog', contact: 'Contact'
     },
     hero: {
-      badge: 'Software Architect & Technical Lead • 9+ Years of Experience',
-      description: 'I design <strong>cloud-native platforms</strong> and <strong>distributed systems</strong> that transform complex business challenges into <span class="highlight">scalable, high-impact solutions</span>.<br><br>I have led <strong>engineering teams</strong> and the development of products serving over <span class="highlight">50M+ users</span>, improving <strong>performance</strong>, <strong>reliability</strong>, and reducing <span class="highlight">operational costs by up to 40%</span>.',
+      badge: 'AI Architect & Tech Lead • 9+ Years of Experience',
+      description: 'I design and ship <strong>conversational AI systems</strong> to production: <span class="highlight">LLM-powered voice agents</span> that handle real phone calls, take orders and integrate with business systems, backed by <strong>objective model evaluation</strong>, privacy by design and millisecond latencies.<br><br>Before that, 9+ years building <strong>cloud-native platforms</strong> and <strong>distributed systems</strong>, leading teams and products serving <span class="highlight">50M+ users</span> and cutting <span class="highlight">operational costs by up to 40%</span>.',
       motto: '"No limits, only possibilities"',
-      value1: 'I accelerate time-to-market 60%',
-      value2: 'I implement DevSecOps & OWASP',
-      value3: 'LLMs & AI Integration',
+      value1: 'AI voice agents in production',
+      value2: 'Objective LLM, STT & TTS evaluation',
+      value3: 'AI-native multi-agent engineering',
       cta1: "Let's Work Together",
       cta2: 'View Projects',
       cta3: 'Download CV',
@@ -146,8 +160,8 @@ window.i18n = {
     },
     about: {
       title: 'About Me',
-      intro: 'I am a <strong>Software Architect and Technical Lead</strong> with over 9 years of experience designing, building, and evolving high-availability software platforms. I am passionate about transforming complex business problems into simple, scalable, and maintainable solutions, combining architecture, development, and technical leadership.',
-      narrative: 'Throughout my career I have led multidisciplinary teams in the design of SaaS platforms, cloud-native architectures, distributed systems, and microservices, accompanying the full software lifecycle from technical definition to deployment and production operation. My experience focuses on backend with <strong>Go (Gin)</strong> and <strong>Python (Django, FastAPI, Flask)</strong>, designing REST, gRPC, and GraphQL APIs, and implementing event-driven architectures on AWS.',
+      intro: 'I am an <strong>AI Architect and Technical Lead</strong> with over 9 years of experience designing, building, and evolving high-availability software platforms. Today I focus on taking <strong>AI agents</strong> from prototype to production: architecture, model selection and evaluation, integration with real systems, and operations. I am passionate about transforming complex business problems into simple, scalable, and maintainable solutions, combining architecture, development, and technical leadership.',
+      narrative: 'At <strong>HeyGIA</strong> I designed and shipped to production in 5 weeks a phone-ordering system handled by a voice agent for a leading restaurant chain in Mexico: the agent (LLM + STT + TTS on LiveKit) talks to the customer and a Go gateway I designed validates the order and sends it to the POS. Throughout my career I have led multidisciplinary teams in the design of SaaS platforms, cloud-native architectures, distributed systems, and microservices, accompanying the full software lifecycle from technical definition to deployment and production operation. My experience focuses on backend with <strong>Go (Gin)</strong> and <strong>Python (Django, FastAPI, Flask)</strong>, designing REST, gRPC, and GraphQL APIs, and implementing event-driven architectures on AWS.',
       areasTitle: 'Areas of Expertise',
       area1Title: 'Technical Leadership',
       area1Text: 'Leadership of distributed teams, technical mentoring, and code reviews. Technical refinement, estimation, and planning. Definition of engineering standards and best practices.',
@@ -159,8 +173,8 @@ window.i18n = {
       area4Text: 'Infrastructure as Code with <strong>Terraform and CDK</strong>. Advanced AWS services (ECS, API Gateway, Lambda) and CI/CD pipelines with GitHub Actions. Observability with New Relic and CloudWatch.',
       area5Title: 'Tech Stack',
       area5Text: '<strong>Python</strong> (Django, Flask, FastAPI, Starlette), <strong>Go</strong> (Gin), PostgreSQL, MongoDB, Redis, Terraform, CDK, AWS, Docker, Kafka, Airflow, Celery.',
-      area6Title: 'AI & Large Language Models',
-      area6Text: 'Integration of Large Language Models (LLMs) into enterprise applications. Development of intelligent assistants, process automation, and generative AI-based solutions using <strong>MCP, LangChain, and LlamaIndex</strong>.'
+      area6Title: 'AI Architecture & Agents',
+      area6Text: 'Production voice agents with <strong>LiveKit Agents</strong>: LLM (Claude, OpenAI), STT (Deepgram, Soniox), TTS (ElevenLabs, Cartesia), VAD and turn detection. Design of <strong>tools</strong> and versioned contracts for tool calling, prompt caching, fallbacks and swappable providers. Evaluation with <strong>LLM-as-judge</strong>, STT benchmarks on real calls and <strong>MCP</strong> servers. PII kept out of the model by design.'
     },
     achievements: {
       title: 'Key Achievements',
@@ -184,7 +198,14 @@ window.i18n = {
       a9Desc: 'Led distributed teams of up to 15 developers across multiple time zones, implementing agile methodologies and achieving 98% senior talent retention.',
       lPerf: 'Performance', lAuto: 'Automation', lMicro: 'Microservices',
       lSec: 'Incidents', lSeo: 'SEO Traffic', lSaas: 'Evolution',
-      lCicd: 'Multi-tenant', lInfra: 'Uptime', lLead: 'Teams'
+      lCicd: 'Multi-tenant', lInfra: 'Uptime', lLead: 'Teams',
+      ai1Title: 'Voice Agent in Production',
+      ai1Desc: 'Designed and shipped to production in 5 weeks a system where an AI voice agent answers real calls and takes orders for a leading restaurant chain in Mexico, integrated end to end with its POS.',
+      ai2Title: 'Objective Model Evaluation',
+      ai2Desc: 'Blind-graded 1,271 segments from 87 real calls to choose STT: the candidate scored 71% vs 54% for the incumbent provider (WER 18% → 13%), and showed noise cancellation made results worse.',
+      ai3Title: 'AI-Native Multi-Agent Engineering',
+      ai3Desc: 'Orchestrated coding agents (a lead that reviews and integrates, workers in isolated worktrees) with Spec-Driven Development and executable constitutions: 2,830 commits, 559 tickets and 48 epics in 9 weeks.',
+      lAi1: 'Idea → Production', lAi2: 'STT on real calls', lAi3: 'Commits in 9 weeks'
     },
     projects: {
       title: 'Featured Projects',
@@ -195,6 +216,12 @@ window.i18n = {
       badgeEnterprise: 'Enterprise',
       badgePersonal: 'Personal',
       moreInfo: 'More Info',
+      pH1Title: 'AI Voice Ordering Gateway',
+      pH1Desc: 'Restaurant-agnostic platform that exposes tools to an LLM voice agent and turns what the customer says into a valid order injected into the POS. SemVer contract with 17 tools, p99 ≤ 50 ms per tool, idempotent submission, per-restaurant configuration without deployments and per-tenant encryption. In production for a leading restaurant chain in Mexico.',
+      pH2Title: 'Conversational Voice Agent',
+      pH2Desc: 'Phone agent on LiveKit Agents with Claude Haiku (prompt caching, OpenAI fallback), Deepgram and ElevenLabs. Hexagonal architecture with LLM/STT/TTS providers as hot-swappable adapters, inbound SIP calls, store transfer and PII kept out of the model.',
+      pH3Title: 'LLM Arena — Goal-Based Evaluation',
+      pH3Desc: 'Self-hosted arena that compares LLMs against business goals: simulated customer, same script across N models from 25 providers, blind LLM judge with weighted rubric, latency and cost. Includes live testing of the real agent and an MCP server.',
       pV1Title: 'Visabot',
       pV1Desc: 'Automated bot that detects cancellations in the official US visa appointment system 24/7 and advances your slot. Over 2,500 successful appointments with 98% effectiveness and an average of 360 days advanced. Pay-per-result model.',
       pA1Title: 'Alunas',
@@ -214,6 +241,7 @@ window.i18n = {
     },
     experience: {
       title: 'Experience',
+      heygiaIntro: 'AI Architect and technical lead of the voice-agent platform. Designed and shipped to production in 5 weeks the system a leading restaurant chain in Mexico uses to take phone orders handled end to end by an AI agent.',
       omni2022Intro: 'As Technical Lead, I led the architecture and evolution of cloud-native SaaS platforms, driving technical strategy, software architecture, and engineering best practices to build scalable, resilient, and maintainable distributed systems.',
       omni2021Intro: 'As Senior Backend Developer, I participated in the design and development of a cloud-based SaaS platform, building scalable backend solutions while collaborating closely with cross-functional teams to deliver high-quality software.',
       apiuxIntro: 'As Backend Software Engineer, I contributed to the design and development of SaaS solutions, building scalable backend services and collaborating with engineering teams to deliver high-quality software in a fast-paced environment.',

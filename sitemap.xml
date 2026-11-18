@@ -7,7 +7,7 @@
   <!-- Página principal -->
   <url>
     <loc>https://jcvb.com.co/</loc>
-    <lastmod>2025-10-17</lastmod>
+    <lastmod>2026-11-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -15,7 +15,7 @@
   <!-- CV PDF -->
   <url>
     <loc>https://jcvb.com.co/assets/CV-2025.pdf</loc>
-    <lastmod>2025-10-17</lastmod>
+    <lastmod>2026-11-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
