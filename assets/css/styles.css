@@ -605,7 +605,7 @@ body {
 /* Skills Section */
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 2rem;
     margin-bottom: 3rem;
 }
@@ -632,6 +632,23 @@ body {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+}
+
+.skill-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.skill-list li {
+    color: var(--text-primary);
+    padding: 0.45rem 0;
+    border-bottom: 1px solid var(--border-glass);
+    font-size: 0.95rem;
+}
+
+.skill-list li:last-child {
+    border-bottom: none;
 }
 
 .skill-item {

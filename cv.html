@@ -581,7 +581,7 @@
       <div class="sidebar-divider"></div>
 
       <div class="sidebar-section">
-        <h3>Certificaciones</h3>
+        <h3>Formación complementaria</h3>
         <div class="edu-item">
           <div class="edu-name">GOLANG: De cero a Master</div>
           <div class="edu-school">Udemy</div>
@@ -609,7 +609,7 @@
         </div>
       </div>
 
-      <div class="sidebar-watermark">17 / 11 / 2026</div>
+      <div class="sidebar-watermark">20 / 11 / 2026</div>
 
     </aside>
 
@@ -622,10 +622,7 @@
       <div class="cv-section">
         <h2 class="section-title">Perfil Profesional</h2>
         <p class="profile-text">
-          <strong>Arquitecto de IA y Líder Técnico</strong> con más de 9 años de experiencia. Diseño y llevo a producción <strong>agentes de IA conversacional</strong>: agentes de voz con LLMs que atienden llamadas reales y se integran con sistemas de negocio, con evaluación objetiva de modelos (LLM, STT, TTS), privacidad por diseño y latencias de milisegundos.
-        </p>
-        <p class="profile-text">
-          Vengo de construir <strong>plataformas SaaS cloud-native</strong> y sistemas distribuidos con <strong>Go</strong> y <strong>Python</strong> sobre <strong>AWS</strong>, liderando equipos de hasta 15 ingenieros. Me involucro tanto en la visión como en la ejecución: defino la arquitectura, escribo los componentes críticos y practico una ingeniería <strong>AI-native</strong>, orquestando agentes de código con Spec-Driven Development.
+          Arquitecto de software y líder técnico con 9+ años en backend y cloud (Go, Python, AWS). Desde 2026 diseño agentes de voz con LLMs que atienden llamadas reales y se conectan con los sistemas del negocio. Antes, en Omni.pro, lideré un equipo de 20 personas y definí la arquitectura del V3 de su OMS. Me ocupo de lo que rodea al modelo: contratos de tools, latencia, evaluación con datos reales y datos sensibles fuera del LLM.
         </p>
       </div>
 
@@ -637,15 +634,15 @@
             <div class="exp-date">09/2026 — Presente</div>
           </div>
           <div class="exp-company">HeyGIA &nbsp;·&nbsp; Agentes de voz con IA &nbsp;·&nbsp; Remoto</div>
-          <p class="exp-intro">Diseñé y llevé a producción en 5 semanas el sistema con el que una cadena de restaurantes líder en México recibe pedidos telefónicos atendidos de punta a punta por un agente de voz con IA.</p>
+          <p class="exp-intro">Llegué con la fundación de la empresa. Cinco semanas después, una cadena de restaurantes en México ya recibía pedidos por teléfono atendidos por el agente de voz.</p>
           <ul class="exp-bullets">
-            <li><strong>Pasarela de pedidos por voz</strong> (Go hexagonal + React) que fundé: expone <em>tools</em> al agente LLM y convierte lo dictado en un pedido válido en el POS. Contrato SemVer de 17 tools, p99 ≤ 50 ms por tool, envío idempotente.</li>
-            <li><strong>Dueño técnico del agente de voz</strong> (LiveKit Agents): LLM Claude Haiku con caché de prompt y fallback a OpenAI, STT Deepgram, TTS ElevenLabs, VAD y detección de turno; proveedores como adaptadores intercambiables en caliente.</li>
-            <li>Flujo de <strong>llamadas entrantes</strong> de punta a punta: carrier SIP → LiveKit → dialer → agente en ECS → POS, con transferencia a tienda por SIP.</li>
-            <li><strong>Arena de evaluación de LLMs</strong> por objetivos de negocio: cliente simulado, N modelos de 25 proveedores, juez LLM a ciegas con rúbrica ponderada, latencia, costo y servidor MCP.</li>
-            <li><strong>Benchmark de STT</strong> con 1.271 segmentos de 87 llamadas reales calificados a ciegas: 71% de acierto vs 54% del proveedor en uso (WER 18% → 13%).</li>
-            <li><strong>Privacidad por diseño</strong>: PII fuera del LLM, cifrado AES-256-GCM por tenant, enmascarado tipado y PCI fuera de alcance.</li>
-            <li><strong>Ingeniería AI-native</strong>: orquesté agentes de código (lead + workers) con Spec-Driven Development y ADRs: 2.830 commits, 559 tickets y 48 épicas en 9 semanas.</li>
+            <li>Diseñé la pasarela de pedidos (Go hexagonal + React). No llama a ningún LLM: el agente conversa y decide, la pasarela valida y envía al POS. 17 tools con contrato SemVer, p99 ≤ 50 ms por tool y envío idempotente. Cada restaurante es configuración, no código.</li>
+            <li>Responsable técnico del agente de voz (LiveKit Agents): Claude Haiku con caché de prompt y fallback a OpenAI, Deepgram y ElevenLabs. Lo migré a arquitectura hexagonal para cambiar de proveedor sin tocar la conversación.</li>
+            <li>Flujo de llamadas entrantes: carrier SIP → LiveKit → dialer → agente en ECS → POS, con transferencia a la tienda por SIP.</li>
+            <li>El teléfono del cliente viaja en una cabecera y no pasa por el modelo; la PII se cifra con AES-256-GCM por tenant y el pago se registra como declaración, lo que deja PCI fuera de alcance.</li>
+            <li>Antes de cambiar de STT califiqué a ciegas 1.271 fragmentos de 87 llamadas: 71% de acierto frente a 54% (WER 18% → 13%). La cancelación de ruido subía el WER de 15% a 24%.</li>
+            <li>Arena interna para elegir LLM con el guion real: cliente simulado, 25 proveedores, juez LLM a ciegas, latencia y costo. Expuesta como servidor MCP.</li>
+            <li>Desarrollo con agentes de código (un líder que revisa e integra, otros en worktrees aislados) a partir de especificaciones y ADRs: 2.830 commits en 9 semanas.</li>
             <li>AWS con Terraform en 3 cuentas: ECS Fargate ARM64, API Gateway + Cognito, Lambda, Valkey, MongoDB Atlas, Glue/Athena.</li>
           </ul>
           <p class="exp-tech">Go · Python · LiveKit · Claude · OpenAI · Deepgram · ElevenLabs · MCP · LiteLLM · React · AWS · Terraform · MongoDB</p>
@@ -733,16 +730,15 @@
       <div class="sidebar-section">
         <h3>Logros Clave</h3>
         <ul class="achievement-list">
-          <li>Agente de voz con IA en producción en 5 semanas, atendiendo llamadas reales de una cadena de restaurantes líder en México.</li>
-          <li>Elegí STT con datos: benchmark ciego sobre 87 llamadas reales, WER de 18% a 13%.</li>
-          <li>Reduje un 40% los costos de infraestructura AWS optimizando task definitions ECS, políticas de auto-scaling y estrategias de right-sizing en plataforma SaaS multi-tenant.</li>
-          <li>Diseñé middleware capaz de procesar 1,500 RPS en tiempo real con arquitectura tolerante a fallos, logrando 99.9% de disponibilidad en producción.</li>
-          <li>Automaticé procesos manuales de 4 horas diarias a menos de 5 minutos mediante pipelines de integración con Adobe Commerce y sistemas ERP del sector farmacéutico.</li>
-          <li>Lideré la migración de un monolito a 7 microservicios con comunicación gRPC y despliegue independiente, reduciendo el time-to-market en un 60%.</li>
+          <li>Agente de voz en producción cinco semanas después de empezar, tomando pedidos reales de una cadena de restaurantes en México.</li>
+          <li>Cambio de STT decidido con un benchmark ciego sobre 87 llamadas reales: WER de 18% a 13%.</li>
+          <li>Arquitectura del OMS V3 en Omni.pro: 7 microservicios y un bus de transacciones.</li>
+          <li>Middleware en Go a 1.500 RPS en tiempo real para una farmacéutica en México.</li>
+          <li>Una tarea manual de 4 horas diarias pasó a correr en minutos.</li>
         </ul>
       </div>
 
-      <div class="sidebar-watermark">17 / 11 / 2026</div>
+      <div class="sidebar-watermark">20 / 11 / 2026</div>
 
     </aside>
 
@@ -761,19 +757,18 @@
           <div class="exp-title">Technical Lead | Software Architect</div>
           <div class="exp-date">02/2022 — 06/2026</div>
         </div>
-        <div class="exp-company">Omni.pro &nbsp;·&nbsp; América Latina &nbsp;·&nbsp; Remoto</div>
-        <p class="exp-intro">Lideré la arquitectura y evolución de plataformas SaaS cloud-native, impulsando la estrategia técnica y las mejores prácticas de ingeniería para construir sistemas distribuidos escalables y resilientes.</p>
+        <div class="exp-company">Omni.pro &nbsp;·&nbsp; Casa de software a la medida &nbsp;·&nbsp; Remoto</div>
+        <p class="exp-intro">Omni.pro desarrolla software a la medida; su producto central era un OMS (Order Management System). Dirigí un equipo de 20 personas y definí la arquitectura del V3 del OMS.</p>
         <ul class="exp-bullets">
-          <li>Definición de arquitecturas de software y patrones que garantizan escalabilidad, resiliencia y alta disponibilidad.</li>
-          <li>Liderazgo de iniciativas de migración cloud-native siguiendo la metodología Twelve-Factor App.</li>
-          <li>Diseño y desarrollo de componentes backend críticos con Go (Gin) y Python (Django, FastAPI).</li>
-          <li>Diseño e implementación de APIs REST, gRPC y GraphQL según los requerimientos del negocio.</li>
-          <li>Establecimiento de estándares de ingeniería mediante code reviews, mentoría y guía técnica al equipo.</li>
-          <li>Impulso de iniciativas DevSecOps con OWASP Top 10, Terraform, AWS CDK y GitHub Actions CI/CD.</li>
-          <li>Análisis de causa raíz (RCA) para mejorar la confiabilidad y prevenir incidentes recurrentes.</li>
-          <li>Integración de Large Language Models (LLMs) en soluciones empresariales.</li>
+          <li>Definí la arquitectura del OMS V3: 7 microservicios comunicados por gRPC y un bus de transacciones que separa las consultas de la transaccionalidad de las órdenes.</li>
+          <li>Diseñé el despliegue por cliente: GitHub Actions y Terraform publican cada microservicio desde un solo repositorio en la cuenta AWS de cada cliente, con costos y datos aislados.</li>
+          <li>Infraestructura en ECS con autoescalado, MongoDB Atlas y Aurora PostgreSQL.</li>
+          <li>Proyectos para clientes: middleware en Go de Magento a Adobe CDP a 1.500 RPS para una farmacéutica en México; carga automática de promociones en Adobe Commerce (de 4 horas diarias a minutos); integración de datos de una automotriz con Adobe CDP.</li>
+          <li>Integré LLMs en productos de clientes, como la generación de descripciones y metadatos SEO para eCommerce.</li>
+          <li>Code reviews, mentoría, estimación y refinamiento del backlog con Product Owners; análisis de causa raíz después de cada incidente.</li>
+          <li>OWASP Top 10, análisis estático con SonarQube y observabilidad con New Relic y CloudWatch.</li>
         </ul>
-        <p class="exp-tech">Go · Python · AWS · Terraform · CDK · GitHub Actions · PostgreSQL · MongoDB · Redis · Docker · gRPC · GraphQL · LLMs · New Relic</p>
+        <p class="exp-tech">Go · Python · gRPC · AWS · Terraform · CDK · GitHub Actions · PostgreSQL · MongoDB · Redis · Docker · New Relic</p>
       </div>
 
       <!-- ── Omni.pro — Senior Backend Developer ── -->
@@ -782,15 +777,14 @@
           <div class="exp-title">Senior Backend Developer</div>
           <div class="exp-date">01/2021 — 02/2022</div>
         </div>
-        <div class="exp-company">Omni.pro &nbsp;·&nbsp; América Latina &nbsp;·&nbsp; Remoto</div>
-        <p class="exp-intro">Diseñé y desarrollé componentes backend modulares para una plataforma SaaS cloud, colaborando con equipos multifuncionales para entregar software de alta calidad en entorno ágil.</p>
+        <div class="exp-company">Omni.pro &nbsp;·&nbsp; Casa de software a la medida &nbsp;·&nbsp; Remoto</div>
+        <p class="exp-intro">Backend del V2 del OMS y de proyectos de integración para clientes.</p>
         <ul class="exp-bullets">
-          <li>Construcción de servicios backend de alto rendimiento con Python (Django), optimizando lógica de negocio e interacciones con base de datos.</li>
-          <li>Diseño e implementación de APIs REST y GraphQL, modelos de datos y flujos de integración entre servicios.</li>
-          <li>Evaluación de tecnologías emergentes y frameworks open-source para mejorar la eficiencia del desarrollo.</li>
-          <li>Aplicación de patrones de diseño, arquitectura limpia, code reviews y documentación técnica.</li>
+          <li>Backend en Python/Django del OMS V2, con el middleware separado del core.</li>
+          <li>Integraciones con WMS, ERP, plataformas de eCommerce y marketplaces, y facturación electrónica por cliente.</li>
+          <li>APIs REST y GraphQL y modelos de datos entre servicios.</li>
         </ul>
-        <p class="exp-tech">Python · Django · PostgreSQL · GraphQL · REST · Docker · AWS · SaaS</p>
+        <p class="exp-tech">Python · Django · Odoo · PostgreSQL · GraphQL · REST · Docker · AWS</p>
       </div>
 
       <!-- ── Apiux ── -->
@@ -800,13 +794,8 @@
           <div class="exp-date">10/2020 — 01/2021</div>
         </div>
         <div class="exp-company">Apiux Tecnología &nbsp;·&nbsp; Chile &nbsp;·&nbsp; Remoto</div>
-        <p class="exp-intro">Contribuí al diseño y desarrollo de soluciones SaaS, construyendo servicios backend escalables en un entorno de alta velocidad.</p>
-        <ul class="exp-bullets">
-          <li>Diseño de componentes backend modulares mejorando la escalabilidad y mantenibilidad del sistema.</li>
-          <li>Diseño e implementación de APIs REST y flujos de integración entre servicios.</li>
-          <li>Aplicación de patrones de diseño, arquitectura limpia y mejores prácticas de ingeniería.</li>
-        </ul>
-        <p class="exp-tech">Python · Django · REST APIs · PostgreSQL · Docker · Git · SaaS</p>
+        <p class="exp-intro">Servicios backend y APIs REST en Python/Django para productos SaaS de clientes.</p>
+        <p class="exp-tech">Python · Django · PostgreSQL · Docker</p>
       </div>
 
       <!-- ── Intello Idea ── -->
@@ -816,11 +805,7 @@
           <div class="exp-date">11/2019 — 10/2020</div>
         </div>
         <div class="exp-company">Intello Idea S.A.S &nbsp;·&nbsp; Colombia</div>
-        <p class="exp-intro">Desarrollo de sistemas funcionales de alta calidad, diseñando y construyendo productos SaaS modulares siguiendo mejores prácticas y patrones de diseño.</p>
-        <ul class="exp-bullets">
-          <li>Planificación y construcción de productos SaaS con diseños modulares bien estructurados.</li>
-          <li>Participación en diseño de APIs, esquemas y flujos de datos con el equipo de ingeniería.</li>
-        </ul>
+        <p class="exp-intro">Backend para productos SaaS en una startup: diseño de APIs, esquemas y flujos de datos con el equipo.</p>
       </div>
 
       <!-- ── Liceo ── -->
@@ -830,7 +815,7 @@
           <div class="exp-date">09/2017 — 05/2019</div>
         </div>
         <div class="exp-company">Liceo Mixto Los Centauros &nbsp;·&nbsp; Colombia</div>
-        <p class="exp-intro">Desarrollo de sistemas educativos y herramientas de gestión académica para la institución.</p>
+        <p class="exp-intro">Sistemas de gestión académica para la institución.</p>
       </div>
 
     </main>
