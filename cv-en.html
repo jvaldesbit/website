@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume — Julián Valdés Bello</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --sidebar-bg: #0d1117;
+      --accent: #00cc6a;
+      --accent2: #00b4d8;
+      --sidebar-text: #ccd6f6;
+      --sidebar-muted: #8892b0;
+      --text: #1e293b;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --sidebar-w: 30%;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Evita que Safari iOS / Chrome Android agranden solo algunos bloques de texto */
+    html {
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: 'Raleway', 'Segoe UI', Arial, sans-serif;
+      background: #d1d9e6;
+      color: var(--text);
+      font-size: 8.5pt;
+      line-height: 1.5;
+    }
+
+    /* ── Controls ─────────────────────────────────── */
+    .controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      padding: 14px 20px;
+    }
+    .hint {
+      font-size: 11px;
+      color: #64748b;
+      font-family: 'Raleway', sans-serif;
+    }
+    .btn-export {
+      font-family: 'Raleway', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 9px 24px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      background: linear-gradient(135deg, #00ff88, #00d4ff);
+      color: #0d1117;
+      letter-spacing: 0.3px;
+    }
+    .btn-export:hover { opacity: 0.88; }
+
+    /* ── Page ─────────────────────────────────────── */
+    .cv-page {
+      display: grid;
+      grid-template-columns: 30% 70%;
+      width: 210mm;
+      height: 297mm;
+      margin: 0 auto 20px;
+      background: white;
+      box-shadow: 0 6px 32px rgba(0,0,0,0.14);
+      overflow: hidden;
+    }
+
+    /* ── Sidebar ──────────────────────────────────── */
+    .sidebar {
+      background: var(--sidebar-bg);
+      color: var(--sidebar-text);
+      padding: 0 16px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+      position: relative;
+    }
+
+    .sidebar-header {
+      background: rgba(0,204,106,0.1);
+      border-bottom: 2px solid var(--accent);
+      padding: 14px 16px;
+      margin: 0 -16px 4px;
+      text-align: center;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .sidebar-header .sh-role {
+      font-size: 8pt;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: 0.3px;
+      line-height: 1.3;
+    }
+    .sidebar-header .sh-sub {
+      font-size: 6.5pt;
+      font-weight: 500;
+      color: var(--accent);
+      letter-spacing: 0.5px;
+      margin-top: 2px;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    /* Logros bullets */
+    .achievement-list {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .achievement-list li {
+      font-size: 6.5pt;
+      color: var(--sidebar-text);
+      line-height: 1.6;
+      padding-left: 11px;
+      position: relative;
+    }
+    .achievement-list li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .sidebar-watermark {
+      position: absolute;
+      bottom: 10px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      font-size: 5.5pt;
+      color: rgba(136, 146, 176, 0.3);
+      letter-spacing: 0.5px;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .sidebar-photo {
+      margin: 0 -16px;
+    }
+    .sidebar-photo img {
+      width: 100%;
+      height: 280px;
+      border-radius: 0;
+      object-fit: cover;
+      object-position: center top;
+      border: none;
+      display: block;
+    }
+
+    .sidebar-name {
+      text-align: center;
+    }
+    .sidebar-name h1 {
+      font-size: 11pt;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.2;
+    }
+    .sidebar-name .name-title {
+      font-size: 7pt;
+      font-weight: 600;
+      color: var(--accent);
+      margin-top: 4px;
+      line-height: 1.4;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .sidebar-divider {
+      height: 1px;
+      background: rgba(0,204,106,0.25);
+      flex-shrink: 0;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .sidebar-section h3 {
+      font-size: 6.5pt;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1.3px;
+      margin-bottom: 9px;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 7px;
+      margin-bottom: 6px;
+      font-size: 7pt;
+      color: var(--sidebar-text);
+      line-height: 1.4;
+    }
+    .contact-item i {
+      color: var(--accent);
+      font-size: 8px;
+      margin-top: 2px;
+      min-width: 11px;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .contact-item a {
+      color: var(--sidebar-text);
+      text-decoration: none;
+      word-break: break-all;
+    }
+
+    .edu-item {
+      margin-bottom: 9px;
+    }
+    .edu-item .edu-name {
+      font-size: 7pt;
+      font-weight: 600;
+      color: #ffffff;
+      line-height: 1.35;
+    }
+    .edu-item .edu-school {
+      font-size: 6.5pt;
+      color: var(--sidebar-muted);
+      margin-top: 1px;
+    }
+    .edu-item .edu-date {
+      font-size: 6pt;
+      color: var(--accent);
+      margin-top: 1px;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+    .tech-tag {
+      font-size: 6pt;
+      padding: 2px 7px;
+      border-radius: 10px;
+      background: rgba(0,204,106,0.1);
+      color: var(--sidebar-text);
+      border: 1px solid rgba(0,204,106,0.22);
+      line-height: 1.6;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    /* ── Main ─────────────────────────────────────── */
+    .main {
+      padding: 26px 24px;
+      overflow: hidden;
+    }
+
+    /* Page 1 main header */
+    .main-header {
+      margin-bottom: 14px;
+    }
+    .main-header h2 {
+      font-size: 20pt;
+      font-weight: 800;
+      color: #0d1117;
+      letter-spacing: -0.5px;
+      line-height: 1.05;
+    }
+    .main-header .main-role {
+      font-size: 9pt;
+      font-weight: 700;
+      color: var(--accent);
+      margin-top: 4px;
+      letter-spacing: 0.2px;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .main-header .main-meta {
+      font-size: 7.5pt;
+      color: var(--text-muted);
+      margin-top: 3px;
+    }
+
+    .main-accent-bar {
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2), transparent);
+      margin-bottom: 14px;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .cv-section {
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-size: 8pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #0d1117;
+      padding-bottom: 5px;
+      border-bottom: 1.5px solid var(--accent);
+      margin-bottom: 12px;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .profile-text {
+      font-size: 8.5pt;
+      color: var(--text);
+      line-height: 1.75;
+      margin-bottom: 8px;
+      text-align: justify;
+    }
+    .profile-text strong {
+      color: #0d1117;
+      font-weight: 700;
+    }
+
+    /* ── Areas Grid ───────────────────────────────── */
+    .areas-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px 24px;
+    }
+
+    .area-item {
+      display: flex;
+      gap: 9px;
+      align-items: flex-start;
+    }
+    .area-icon {
+      color: var(--accent);
+      font-size: 8pt;
+      margin-top: 1px;
+      min-width: 13px;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .area-item h4 {
+      font-size: 8pt;
+      font-weight: 700;
+      color: #0d1117;
+      margin-bottom: 3px;
+    }
+    .area-item p {
+      font-size: 8pt;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    /* ── Tech Stack Table ─────────────────────────── */
+    .tech-stack-table {
+      display: flex;
+      flex-direction: column;
+    }
+    .ts-row {
+      display: grid;
+      grid-template-columns: 78px 1fr;
+      gap: 12px;
+      padding: 5px 0;
+      border-bottom: 1px solid var(--border);
+      align-items: baseline;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .ts-row:last-child { border-bottom: none; }
+    .ts-cat {
+      font-size: 6.5pt;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .ts-list {
+      font-size: 8pt;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    /* ── Experience ───────────────────────────────── */
+    .exp-item {
+      margin-bottom: 12px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .exp-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+
+    .exp-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 1px;
+    }
+    .exp-title {
+      font-size: 9pt;
+      font-weight: 700;
+      color: #0d1117;
+    }
+    .exp-date {
+      font-size: 7pt;
+      font-weight: 600;
+      color: var(--accent);
+      white-space: nowrap;
+      margin-top: 1px;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .exp-company {
+      font-size: 8pt;
+      color: var(--text-muted);
+      margin-bottom: 5px;
+    }
+    .exp-intro {
+      font-size: 8pt;
+      color: var(--text-muted);
+      margin-bottom: 5px;
+      line-height: 1.65;
+      font-style: italic;
+    }
+    .exp-bullets {
+      padding-left: 13px;
+      margin-bottom: 5px;
+    }
+    .exp-bullets li {
+      font-size: 8pt;
+      color: var(--text);
+      line-height: 1.65;
+      margin-bottom: 2px;
+    }
+    .exp-tech {
+      font-size: 7.5pt;
+      color: var(--text-muted);
+      font-style: italic;
+      margin-top: 4px;
+    }
+
+    /* Page 2 main header */
+    .page2-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+    .page2-name {
+      font-size: 9pt;
+      font-weight: 800;
+      color: #0d1117;
+    }
+    .page2-page {
+      font-size: 6.5pt;
+      color: var(--text-muted);
+    }
+
+    /* ── Print ────────────────────────────────────── */
+    @media print {
+      body {
+        background: white;
+      }
+      .controls {
+        display: none;
+      }
+      .cv-page {
+        margin: 0;
+        box-shadow: none;
+        break-after: page;
+        page-break-after: always;
+      }
+      .cv-page:last-child {
+        break-after: avoid;
+        page-break-after: avoid;
+      }
+      @page {
+        size: A4;
+        margin: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Controls -->
+  <div class="controls">
+    <a class="btn-export" href="Julian-Valdes-Bello-CV-EN.pdf" download="Julian-Valdes-Bello-CV-EN.pdf">Download PDF</a>
+    <a class="btn-export" href="cv.html" style="margin-left:8px">Español</a>
+  </div>
+
+  <!-- ═══════════════════════ PAGE 1 ═══════════════════════ -->
+  <div class="cv-page">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sh-role">AI Architect</div>
+        <div class="sh-role">Tech Lead</div>
+        <div class="sh-sub">jcvb.com.co</div>
+      </div>
+
+      <div class="sidebar-photo">
+        <img src="assets/images/profile.JPEG" alt="Julián Valdés Bello">
+      </div>
+
+      <div class="sidebar-name">
+        <h1>Julián Valdés Bello</h1>
+      </div>
+
+      <div class="sidebar-divider"></div>
+
+      <div class="sidebar-section">
+        <h3>Contact</h3>
+        <div class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <span>julianvaldes24@gmail.com</span>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-phone"></i>
+          <span>+57 313 730 3141</span>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>Bogotá D.C., Colombia</span>
+        </div>
+        <div class="contact-item">
+          <i class="fab fa-linkedin"></i>
+          <a href="https://www.linkedin.com/in/julian-valdes-bello-76aa21175/" target="_blank">linkedin.com/in/julian-valdes-bello</a>
+        </div>
+        <div class="contact-item">
+          <i class="fab fa-github"></i>
+          <a href="https://github.com/jvaldesbit" target="_blank">github.com/jvaldesbit</a>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-globe"></i>
+          <a href="https://jcvb.com.co" target="_blank">jcvb.com.co</a>
+        </div>
+      </div>
+
+      <div class="sidebar-divider"></div>
+
+      <div class="sidebar-section">
+        <h3>Education</h3>
+        <div class="edu-item">
+          <div class="edu-name">Systems Engineering</div>
+          <div class="edu-school">Universidad Central</div>
+          <div class="edu-date">02/2016 - On hold</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-name">Commercial Operations Technician</div>
+          <div class="edu-school">SENA</div>
+          <div class="edu-date">02/2013 - 10/2014</div>
+        </div>
+      </div>
+
+      <div class="sidebar-divider"></div>
+
+      <div class="sidebar-section">
+        <h3>Additional Training</h3>
+        <div class="edu-item">
+          <div class="edu-name">GOLANG: Zero to Master</div>
+          <div class="edu-school">Udemy</div>
+          <div class="edu-date">Oct 2025</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-name">Terraform: Beginner to Certified</div>
+          <div class="edu-school">Udemy</div>
+          <div class="edu-date">Aug 2024</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-name">AWS Cloud Practitioner</div>
+          <div class="edu-school">Platzi</div>
+          <div class="edu-date">Nov 2022</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-name">Python</div>
+          <div class="edu-school">HackerRank</div>
+          <div class="edu-date">May 2020</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-name">Django + Python &amp; REST</div>
+          <div class="edu-school">KeepCoding</div>
+          <div class="edu-date">Aug 2019</div>
+        </div>
+      </div>
+
+      <div class="sidebar-watermark">25 / 11 / 2026</div>
+    </aside>
+
+    <main class="main">
+      <div class="main-accent-bar"></div>
+
+      <div class="cv-section">
+        <h2 class="section-title">Professional Summary</h2>
+        <p class="profile-text">
+          Software architect and technical lead with 9+ years in backend and cloud (Go, Python, AWS). Since 2026 I design LLM voice agents that handle real customer calls and plug into business systems; I took one from kickoff to production for a restaurant chain in Mexico in five weeks. Before that, at Omni.pro, a custom software house, I led a 20-person team delivering projects for enterprise clients and defined the architecture of its OMS V3. I focus on what surrounds the model: tool contracts, latency, evaluation on real data and keeping sensitive data out of the LLM.
+        </p>
+      </div>
+
+      <div class="cv-section">
+        <h3 class="section-title">Experience</h3>
+        <div class="exp-item">
+          <div class="exp-header">
+            <div class="exp-title">AI Architect &amp; Tech Lead</div>
+            <div class="exp-date">09/2026 — Present</div>
+          </div>
+          <div class="exp-company">HeyGIA &nbsp;·&nbsp; AI voice agents &nbsp;·&nbsp; Remote</div>
+          <p class="exp-intro">Joined at the company&#39;s founding. Five weeks later, a restaurant chain in Mexico was taking phone orders handled end to end by our voice agent.</p>
+          <ul class="exp-bullets">
+            <li>Designed the ordering gateway (hexagonal Go + React). It never calls an LLM: the agent talks and decides, the gateway validates and submits to the POS. 17 tools under a SemVer contract, p99 ≤ 50 ms per tool, idempotent submission. Each restaurant is configuration, not code.</li>
+            <li>Technical owner of the voice agent (LiveKit Agents): Claude Haiku with prompt caching and OpenAI fallback, Deepgram and ElevenLabs. Moved it to a hexagonal architecture so providers can be swapped without touching conversation logic.</li>
+            <li>Designed the inbound call flow: SIP carrier → LiveKit → dialer → agent on ECS → POS, with SIP transfer to the store.</li>
+            <li>Responsible AI by design: the caller&#39;s phone number travels in a header and never reaches the model; PII is encrypted per tenant (AES-256-GCM); payment is recorded as a declaration, keeping PCI out of scope.</li>
+            <li>Chose STT with data, not demos: blind-graded 1,271 segments from 87 real calls, 71% vs 54% accuracy (WER 18% → 13%). The same test showed noise cancellation raised WER from 15% to 24%.</li>
+            <li>Built an internal arena to choose LLMs against the real script: simulated customer, 25 providers, blind LLM judge, latency and cost. Exposed as an MCP server.</li>
+            <li>AI-assisted development with coding agents (Claude Code, GitHub Spec Kit): a lead agent reviews and integrates while others work in isolated worktrees from specs and ADRs. 2,830 commits in 9 weeks.</li>
+            <li>AWS with Terraform across 3 accounts: ECS Fargate ARM64, API Gateway + Cognito, Lambda, Valkey, MongoDB Atlas, Glue/Athena.</li>
+          </ul>
+          <p class="exp-tech">Go · Python · LiveKit · Claude · OpenAI · Deepgram · ElevenLabs · MCP · LiteLLM · React · AWS · Terraform · MongoDB</p>
+        </div>
+      </div>
+
+      <div class="cv-section">
+        <h3 class="section-title">Tech Stack</h3>
+        <div class="tech-stack-table">
+          <div class="ts-row">
+            <span class="ts-cat">AI &amp; LLMs</span>
+            <span class="ts-list">Claude &nbsp;·&nbsp; OpenAI &nbsp;·&nbsp; Gemini &nbsp;·&nbsp; Tool calling &nbsp;·&nbsp; MCP &nbsp;·&nbsp; LiteLLM &nbsp;·&nbsp; LLM-as-judge &nbsp;·&nbsp; LangChain</span>
+          </div>
+          <div class="ts-row">
+            <span class="ts-cat">Voice AI</span>
+            <span class="ts-list">LiveKit Agents &nbsp;·&nbsp; Deepgram &nbsp;·&nbsp; Soniox &nbsp;·&nbsp; ElevenLabs &nbsp;·&nbsp; Cartesia &nbsp;·&nbsp; Silero VAD &nbsp;·&nbsp; SIP</span>
+          </div>
+          <div class="ts-row">
+            <span class="ts-cat">Languages</span>
+            <span class="ts-list">Go &nbsp;·&nbsp; Python &nbsp;·&nbsp; TypeScript</span>
+          </div>
+          <div class="ts-row">
+            <span class="ts-cat">Frameworks</span>
+            <span class="ts-list">FastAPI &nbsp;·&nbsp; Django &nbsp;·&nbsp; Flask &nbsp;·&nbsp; Gin &nbsp;·&nbsp; React</span>
+          </div>
+          <div class="ts-row">
+            <span class="ts-cat">Cloud &amp; Infra</span>
+            <span class="ts-list">AWS (ECS Fargate, Lambda, API Gateway, Cognito) &nbsp;·&nbsp; Terraform &nbsp;·&nbsp; CDK &nbsp;·&nbsp; Docker</span>
+          </div>
+          <div class="ts-row">
+            <span class="ts-cat">Data</span>
+            <span class="ts-list">PostgreSQL &nbsp;·&nbsp; MongoDB &nbsp;·&nbsp; Redis/Valkey &nbsp;·&nbsp; DynamoDB &nbsp;·&nbsp; Athena &nbsp;·&nbsp; Kafka</span>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- ═══════════════════════ PAGE 2 ═══════════════════════ -->
+  <div class="cv-page">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sh-role">AI Architect</div>
+        <div class="sh-role">Tech Lead</div>
+        <div class="sh-sub">jcvb.com.co</div>
+      </div>
+
+      <div class="sidebar-section" style="margin-top: 6px;">
+        <h3>Languages</h3>
+        <div class="contact-item"><i class="fas fa-comment-dots"></i><span>Spanish — Native</span></div>
+        <div class="contact-item"><i class="fas fa-comment-dots"></i><span>English — Intermediate</span></div>
+        <div class="contact-item"><i class="fas fa-comment-dots"></i><span>French — Beginner</span></div>
+      </div>
+
+      <div class="sidebar-divider"></div>
+
+      <div class="sidebar-section">
+        <h3>Side Projects</h3>
+        <div class="edu-item">
+          <div class="edu-name">visabot.com.co</div>
+          <div class="edu-school">Web scraping · Automation · SaaS</div>
+          <div class="edu-date">2,500+ appointments moved</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-name">alunas.co</div>
+          <div class="edu-school">Astro.js · PWA · Gemini AI · Serverless</div>
+        </div>
+      </div>
+
+      <div class="sidebar-divider"></div>
+
+      <div class="sidebar-section">
+        <h3>Key Achievements</h3>
+        <ul class="achievement-list">
+          <li>Voice agent in production five weeks after kickoff, taking real orders for a restaurant chain in Mexico.</li>
+          <li>STT provider switch backed by a blind benchmark on 87 real calls: WER from 18% to 13%.</li>
+          <li>OMS V3 architecture at Omni.pro: 7 microservices and a transaction bus.</li>
+          <li>Go middleware at 1,500 RPS in real time for a pharmaceutical company in Mexico.</li>
+          <li>A 4-hour daily manual task now runs in minutes.</li>
+        </ul>
+      </div>
+
+      <div class="sidebar-watermark">25 / 11 / 2026</div>
+    </aside>
+
+    <main class="main">
+      <div class="main-accent-bar" style="margin-bottom: 16px;"></div>
+      <div class="cv-section" style="margin-bottom: 10px;">
+        <h3 class="section-title">Experience (continued)</h3>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div class="exp-title">Technical Lead | Software Architect</div>
+          <div class="exp-date">02/2022 — 06/2026</div>
+        </div>
+        <div class="exp-company">Omni.pro &nbsp;·&nbsp; Custom software house &nbsp;·&nbsp; Remote</div>
+        <p class="exp-intro">Omni.pro builds custom software for enterprise clients; its core product was an OMS (Order Management System). I led a team of 20 people and defined the architecture for V3 of the OMS.</p>
+        <ul class="exp-bullets">
+          <li>Defined the OMS V3 architecture: 7 microservices over gRPC and a transaction bus that separates order queries from order transactions.</li>
+          <li>Designed per-client deployment: GitHub Actions and Terraform ship each microservice from a single repository into each client&#39;s own AWS account, keeping cost and data isolated.</li>
+          <li>Infrastructure on auto-scaling ECS with MongoDB Atlas and Aurora PostgreSQL.</li>
+          <li>Client engagements: a Go middleware streaming Magento events to Adobe CDP at 1,500 RPS for a pharmaceutical company in Mexico; automated promotion loading into Adobe Commerce (from 4 hours a day to minutes); an automotive data integration with Adobe CDP.</li>
+          <li>Integrated LLMs into client products, such as generating SEO descriptions and metadata for eCommerce catalogs.</li>
+          <li>Code reviews, mentoring, estimation and backlog refinement with Product Owners; root cause analysis after every incident.</li>
+          <li>OWASP Top 10, static analysis with SonarQube, observability with New Relic and CloudWatch.</li>
+        </ul>
+        <p class="exp-tech">Go · Python · gRPC · AWS · Terraform · CDK · GitHub Actions · PostgreSQL · MongoDB · Redis · Docker · New Relic</p>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div class="exp-title">Senior Backend Developer</div>
+          <div class="exp-date">01/2021 — 02/2022</div>
+        </div>
+        <div class="exp-company">Omni.pro &nbsp;·&nbsp; Custom software house &nbsp;·&nbsp; Remote</div>
+        <p class="exp-intro">Backend for V2 of the OMS and for client integration projects.</p>
+        <ul class="exp-bullets">
+          <li>Python/Django backend for OMS V2, with the middleware split from the core.</li>
+          <li>Integrations with WMS, ERP, eCommerce platforms and marketplaces, plus per-client electronic invoicing.</li>
+          <li>REST and GraphQL APIs and data models between services.</li>
+        </ul>
+        <p class="exp-tech">Python · Django · Odoo · PostgreSQL · GraphQL · REST · Docker · AWS</p>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div class="exp-title">Backend Software Engineer</div>
+          <div class="exp-date">10/2020 — 01/2021</div>
+        </div>
+        <div class="exp-company">Apiux Tecnología &nbsp;·&nbsp; Chile &nbsp;·&nbsp; Remote</div>
+        <p class="exp-intro">Backend services and REST APIs in Python/Django for client SaaS products.</p>
+        <p class="exp-tech">Python · Django · PostgreSQL · Docker</p>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div class="exp-title">Software Engineer</div>
+          <div class="exp-date">11/2019 — 10/2020</div>
+        </div>
+        <div class="exp-company">Intello Idea S.A.S &nbsp;·&nbsp; Colombia</div>
+        <p class="exp-intro">Backend for SaaS products at a startup: API, schema and data flow design with the team.</p>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div class="exp-title">Software Engineer</div>
+          <div class="exp-date">09/2017 — 05/2019</div>
+        </div>
+        <div class="exp-company">Liceo Mixto Los Centauros &nbsp;·&nbsp; Colombia</div>
+        <p class="exp-intro">Academic management systems for the school.</p>
+      </div>
+
+    </main>
+  </div>
+
+</body>
+</html>
